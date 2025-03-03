@@ -3,8 +3,25 @@
  * FERRER, Matt
  */
 
-window.onload = function(){
+// HTML elements
+window.onload = function() {
     setTimeout(function(){
     document.getElementById("fadein").remove();
     },1000);
 };
+
+// variable declarations
+const bottles = new Map();
+
+// backend functions
+function addBottle(bottleName, bottleWeight) {
+    bottles.set(bottleName, bottleWeight);
+}
+
+function removeBottle(bottleName) {
+    return bottles.delete(bottleName);
+}
+
+function computeWaterVolume(beforeWeight, afterWeight) {
+    return Math.max(0, beforeWeight - afterWeight);
+}
