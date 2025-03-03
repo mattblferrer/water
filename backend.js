@@ -5,9 +5,12 @@
 
 // HTML elements
 window.onload = function() {
-    setTimeout(function(){
+    setTimeout(function() {
     document.getElementById("fadein").remove();
     },1000);
+    setTimeout(function() {
+    document.getElementById("splash").remove();
+    },3000);
 };
 
 // variable declarations
