@@ -51,7 +51,11 @@
     position: fixed;
     top: 30%;
     left: 50%;
+    width: auto;
+    height: 15%;
+    aspect-ratio: auto;
     transform: translate(-50%, -30%);
     -webkit-transform: translate(-50%, -30%);
     -ms-transform: translate(-50%, -30%);
+    z-index: 100;
 }
