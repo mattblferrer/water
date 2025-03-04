@@ -61,8 +61,8 @@
     z-index: 99;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    -webkit-animation: fadeinall 0.3s normal both;
-    animation: fadeinall 0.3s normal both;
+    -webkit-animation: fadeinall 1s normal both;
+    animation: fadeinall 1s normal both;
     -webkit-animation-delay: 3s;
     animation-delay: 3s; 
 }
