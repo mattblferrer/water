@@ -97,7 +97,7 @@
     position: fixed;
     top: 80%;
     width: 100%;
-    height: 30%;
+    height: 35%;
 }
 #amount-container {
     opacity: 1;
@@ -113,4 +113,12 @@
 }
 #water-amount-container {
     border-bottom: 1px solid #000000;
+}
+#water {
+    opacity: 1;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    height: 0%;
+    background-color: #39BECB;
 }

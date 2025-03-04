@@ -18,6 +18,8 @@ window.onload = function() {
 
 // variable declarations
 const bottles = new Map();
+let waterAmount = 0;
+let bottleAmount = 3000;
 
 // backend functions
 function addBottle(bottleName, bottleWeight) {
