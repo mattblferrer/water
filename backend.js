@@ -6,13 +6,10 @@
 // HTML elements
 window.onload = function() {
     setTimeout(function() {
-    document.getElementById("fadein").remove();
+        document.getElementById("fadein").remove();
     },1000);
     setTimeout(function() {
-    document.getElementById("splash").remove();
-    },3000);
-    setTimeout(function() {
-    document.getElementById("splash-bottom").remove();
+        window.location.href = "home.html";
     },3000);
 };
 
