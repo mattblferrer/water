@@ -16,14 +16,22 @@
     <title>Water?</title>
 </head>
 <body>
+    <!--Splash Screen-->
     <div id="fadein"></div>
     <div id="splash-fadein"></div>
-    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
-    <dotlottie-wc src="https://lottie.host/df7174b7-1b03-4dfc-85e9-f2b5617cca28/hjyFD1HPLk.lottie" autoplay loop></dotlottie-wc>
     <img src="images\logo.png" id="splash" class="center"></img>
     <img src="images\bottom.png" id="splash-bottom" class="center"></img>
+
+    <!--Home Screen-->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
+    <dotlottie-wc src="https://lottie.host/df7174b7-1b03-4dfc-85e9-f2b5617cca28/hjyFD1HPLk.lottie" id="wave" autoplay loop></dotlottie-wc>
     <div id="amount-container">
-        <h1 id="water-amount" class="center">0 mL</h1>
+        <div id="water-amount-container" class="center">
+            <h1 id="water-amount" class="center">0 mL</h1>
+        </div>
+        <div id="bottle-amount-container">
+            <h1 id="bottle-amount" class="center">3000 mL</h1>
+        </div>
     </div>
     <script src="backend.js"></script>
 </body>
