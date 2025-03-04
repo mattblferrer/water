@@ -11,6 +11,9 @@ window.onload = function() {
     setTimeout(function() {
     document.getElementById("splash").remove();
     },3000);
+    setTimeout(function() {
+    document.getElementById("splash-bottom").remove();
+    },3000);
 };
 
 // variable declarations
