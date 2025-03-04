@@ -111,7 +111,7 @@
     -ms-transform: translateY(-50%);
     z-index: 1;
 }
-#water-amount, #bottle-amount {
+#water-amount, #target-amount {
     width: 100%;
 }
 #water-amount-container {

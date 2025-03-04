@@ -19,7 +19,7 @@ window.onload = function() {
 // variable declarations
 const bottles = new Map();
 let waterAmount = 0;
-let bottleAmount = 3000;
+let targetAmount = 3000;
 
 // backend functions
 function addBottle(bottleName, bottleWeight) {
@@ -36,7 +36,7 @@ function computeWaterVolume(beforeWeight, afterWeight) {
 
 function changeWaterLevel(newAmount) {
     waterAmount = newAmount;
-    document.getElementById("water").style.height = (waterAmount / bottleAmount * 100) + "%";
+    document.getElementById("water").style.height = (waterAmount / targetAmount * 100) + "%";
     document.getElementById("water-amount").innerHTML = waterAmount + " mL";
-    document.getElementById("wave").style.top = ((0.8 - waterAmount / bottleAmount) * 100) + "%";
+    document.getElementById("wave").style.top = ((0.8 - waterAmount / targetAmount) * 100) + "%";
 }
