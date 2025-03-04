@@ -33,3 +33,10 @@ function removeBottle(bottleName) {
 function computeWaterVolume(beforeWeight, afterWeight) {
     return Math.max(0, beforeWeight - afterWeight);
 }
+
+function changeWaterLevel(newAmount) {
+    waterAmount = newAmount;
+    document.getElementById("water").style.height = (waterAmount / bottleAmount * 100) + "%";
+    document.getElementById("water-amount").innerHTML = waterAmount + " mL";
+    document.getElementById("wave").style.top = ((0.8 - waterAmount / bottleAmount) * 100) + "%";
+}
