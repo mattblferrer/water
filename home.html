@@ -21,11 +21,15 @@
     <dotlottie-wc src="https://lottie.host/e2c21192-1172-4e0f-9ee8-46d8de17c7f2/ttPI0yMpMX.lottie" id="wave" autoplay loop speed="0.5"></dotlottie-wc>
     <div id="amount-container">
         <div id="water-amount-container" class="center">
-            <h1 id="water-amount" class="center">0 mL</h1>
+            <h1 id="water-amount" class="center">0</h1><h1 id="ml" class="center"> mL</h1>
         </div>
         <div id="target-amount-container">
-            <h1 id="target-amount" class="center">3000 mL</h1>
+            <h1 id="target-amount" class="center">3000</h1><h1 id="ml" class="center"> mL</h1>
         </div>
+    </div>
+    <div>
+        <input type="number" id="water-input-amount" min="0" value="0" step="100" class="center">
+        <button id="add-water" class="center" onclick="getWaterInput()">Add Water</button>
     </div>
     <div id="water"></div>
     <div class="navbar">

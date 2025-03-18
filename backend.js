@@ -8,9 +8,6 @@ window.onload = function() {
     setTimeout(function() {
         document.getElementById("fadein").remove();
     },1000);
-    setTimeout(function() {
-        window.location.href = "home.html";
-    },3000);
 };
 
 // variable declarations
@@ -19,6 +16,12 @@ let waterAmount = 0;
 let targetAmount = 3000;
 
 // backend functions
+function getWaterInput() {
+    inputAmount = parseFloat(document.getElementById("water-input-amount").value);
+    currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
+    changeWaterLevel(inputAmount + currentAmount);
+}
+
 function addBottle(bottleName, bottleWeight) {
     bottles.set(bottleName, bottleWeight);
 }
@@ -33,7 +36,7 @@ function computeWaterVolume(beforeWeight, afterWeight) {
 
 function changeWaterLevel(newAmount) {
     waterAmount = newAmount;
-    document.getElementById("water").style.height = (waterAmount / targetAmount * 100) + "%";
-    document.getElementById("water-amount").innerHTML = waterAmount + " mL";
-    document.getElementById("wave").style.top = ((0.7 - (0.7 * waterAmount / targetAmount)) * 100) + "%";
+    document.getElementById("water").style.height = Math.min(70, (waterAmount / targetAmount * 70)) + "%";
+    document.getElementById("water-amount").innerHTML = waterAmount;
+    document.getElementById("wave").style.top = Math.min(70, ((0.7 - (0.7 * waterAmount / targetAmount)) * 100)) + "%";
 }
