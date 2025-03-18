@@ -142,6 +142,11 @@
     background-color: #FDFDFD;
     z-index: 99;
 }
+.navicon {
+    width: 20%;
+    display: inline;
+    text-align: center;
+}
 ul {
     display: flex;
     justify-content: space-evenly;
