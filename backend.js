@@ -38,5 +38,5 @@ function changeWaterLevel(newAmount) {
     waterAmount = newAmount;
     document.getElementById("water").style.height = Math.min(70, (waterAmount / targetAmount * 70)) + "%";
     document.getElementById("water-amount").innerHTML = waterAmount;
-    document.getElementById("wave").style.top = Math.min(70, ((0.7 - (0.7 * waterAmount / targetAmount)) * 100)) + "%";
+    document.getElementById("wave").style.top = Math.max(0, ((0.7 - (0.7 * waterAmount / targetAmount)) * 100)) + "%";
 }
