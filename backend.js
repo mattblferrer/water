@@ -36,7 +36,7 @@ function computeWaterVolume(beforeWeight, afterWeight) {
 
 function changeWaterLevel(newAmount) {
     waterAmount = newAmount;
-    document.getElementById("water").style.height = Math.min(70, (waterAmount / targetAmount * 70)) + "%";
+    document.getElementById("water").style.height = Math.min(80, (waterAmount / targetAmount * 80)) + "%";
     document.getElementById("water-amount").innerHTML = waterAmount;
-    document.getElementById("wave").style.top = Math.max(0, ((0.7 - (0.7 * waterAmount / targetAmount)) * 100)) + "%";
+    document.getElementById("wave").style.top = Math.max(0, ((0.8 - (0.8 * waterAmount / targetAmount)) * 100)) + "%";
 }
