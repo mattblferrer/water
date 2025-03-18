@@ -92,9 +92,9 @@
 #wave {
     opacity: 1;
     position: fixed;
-    top: 70%;
+    top: 80%;
     width: 100%;
-    height: 25%;
+    height: 15%;
     z-index: 2;
 }
 #amount-container {
@@ -120,7 +120,7 @@
 #target-amount-container {
     padding-top: 1%;
 }
-#input-container {
+#input-container, #water-input-amount, #add-water {
     position: relative;
     z-index: 99;
 }
@@ -131,7 +131,7 @@
     width: 100%;
     height: 0%;
     background-color: #39BECB;
-    z-index: 2;
+    z-index: 1;
 }
 .navbar {
     opacity: 1;
