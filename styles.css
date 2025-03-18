@@ -3,7 +3,7 @@
  * FERRER, Matt
  */
 
-@keyframes fadeinall {
+ @keyframes fadeinall {
     0% {
         opacity: 1; 
     }
@@ -92,9 +92,9 @@
 #wave {
     opacity: 1;
     position: fixed;
-    top: 80%;
+    top: 70%;
     width: 100%;
-    height: 15%;
+    height: 25%;
     z-index: 2;
 }
 #amount-container {
@@ -120,7 +120,7 @@
 #target-amount-container {
     padding-top: 1%;
 }
-#input-container, #water-input-amount, #add-water {
+#input-container {
     position: relative;
     z-index: 99;
 }
@@ -131,7 +131,7 @@
     width: 100%;
     height: 0%;
     background-color: #39BECB;
-    z-index: 1;
+    z-index: 2;
 }
 .navbar {
     opacity: 1;
