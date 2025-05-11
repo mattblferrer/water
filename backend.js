@@ -53,3 +53,26 @@ function changeWaterLevel(newAmount) {
     document.getElementById("water-amount").innerHTML = waterAmount;
     document.getElementById("wave").style.top = Math.max(0, ((0.7 - (0.7 * waterAmount / targetAmount)) * 100)) + "%";
 }
+
+const dropdown = document.querySelector('.dropdown');
+const selected = dropdown.querySelector('.dropdown-selected');
+const list = dropdown.querySelector('.dropdown-list');
+const items = dropdown.querySelectorAll('.dropdown-item');
+
+selected.addEventListener('click', () => {
+dropdown.classList.toggle('open');
+});
+
+items.forEach(item => {
+item.addEventListener('click', () => {
+    selected.textContent = item.textContent;
+    dropdown.classList.remove('open');
+});
+});
+
+// Close dropdown when clicking outside
+window.addEventListener('click', (e) => {
+if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+}
+});

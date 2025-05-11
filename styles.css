@@ -156,6 +156,23 @@ html, body {
     position: absolute;
     left: 5%;
 }
+.bottle-options {
+    opacity: 1;
+    position: absolute;
+    top: 25%;
+    width: 20;
+    height: 50%;
+    background-color: #FDFDFD;
+    z-index: 99;
+    right: 5%;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;;
+    text-align: right;
+}
+.bottle-options:focus {
+    outline: none;
+}
 .navbar {
     opacity: 1;
     position: absolute;
@@ -229,3 +246,4 @@ li {
   font-size: 20px;
   cursor: pointer;
 }
+
