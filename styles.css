@@ -12,7 +12,7 @@ html, body {
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
-    overflow: hidden;
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
 }
 
  @keyframes fadeinall {
@@ -161,13 +161,14 @@ html, body {
     display: flex;
     align-items: center;
     position: absolute;
+    top: 0.5vh;
     left: 3vh;
 }
 .bottle-options {
     opacity: 1;
     position: absolute;
-    top: 25%;
-    width: 20;
+    top: 2vh;
+    width: 25vh;
     height: 50%;
     background-color: #FDFDFD;
     z-index: 99;
