@@ -27,10 +27,10 @@
             <h1 id="target-amount" class="center">3000</h1><h1 id="ml" class="center"> mL</h1>
         </div>
     </div>
-    <div id="input-container">
+    <!-- <div id="input-container">
         <input type="number" id="water-input-amount" min="0" value="0" step="100" class="center">
         <button id="add-water" class="center" onclick="getWaterInput()">Add Water</button>
-    </div>
+    </div> -->
     <div id="water"></div>
     <div class="navbar">
         <ul>
@@ -47,9 +47,27 @@
                 </a>
             </li>
             <li>
-                <a href="home.html">
-                    <img class="navicon" src="images/home_cyan.svg" alt="Home">
-                </a>
+                <img class="navicon" src="images/home_cyan.svg" alt="Input Water" id="openModal">
+                <div id="inputModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Input Water</h3>
+                        <input type="number" id="water-input-amount" min="0" value="0" step="100">
+                        <button id="add-water-modal" onclick="getWaterInput()">Add Water</button>
+                    </div>
+                    <script>
+                        const modal = document.getElementById("inputModal");
+                        const openBtn = document.getElementById("openModal");
+                        const closeBtn = document.querySelector(".close");
+
+                        openBtn.onclick = () => {
+                            modal.style.display = "block";
+                        };
+
+                        closeBtn.onclick = () => {
+                            modal.style.display = "none";
+                        };
+                    </script>
             </li>
             <li>
                 <a href="bottles.html">
