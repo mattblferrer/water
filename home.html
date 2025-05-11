@@ -16,62 +16,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
     <title>Water?</title>
 </head>
-<body class="phone-wrapper">
-    <!--Home Screen-->
-    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
-    <dotlottie-wc id="wave" src="https://lottie.host/e2c21192-1172-4e0f-9ee8-46d8de17c7f2/ttPI0yMpMX.lottie" autoplay loop speed="0.5"></dotlottie-wc>
-    <div id="amount-container">
-        <div id="water-amount-container" class="center">
-            <h1 id="water-amount" class="center">0</h1><h1 id="ml" class="center"> mL</h1>
+<body>
+    <div class="phone-wrapper">
+        <!--Home Screen-->
+        <div class="topbar">
+            <h1>Water?</h1>
+            <!-- <div class="topbar-bottle">
+
+            </div> -->
         </div>
-        <div id="target-amount-container">
-            <h1 id="target-amount" class="center">3000</h1><h1 id="ml" class="center"> mL</h1>
+        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
+        <dotlottie-wc id="wave" src="https://lottie.host/e2c21192-1172-4e0f-9ee8-46d8de17c7f2/ttPI0yMpMX.lottie" autoplay loop speed="0.5"></dotlottie-wc>
+        <div id="amount-container">
+            <div id="water-amount-container" class="center">
+                <h1 id="water-amount" class="center">0</h1><h1 id="ml" class="center"> mL</h1>
+            </div>
+            <div id="target-amount-container">
+                <h1 id="target-amount" class="center">3000</h1><h1 id="ml" class="center"> mL</h1>
+            </div>
         </div>
-    </div>
-    <!-- <div id="input-container">
-        <input type="number" id="water-input-amount" min="0" value="0" step="100" class="center">
-        <button id="add-water" class="center" onclick="getWaterInput()">Add Water</button>
-    </div> -->
-    <div id="water"></div>
-    <div class="navbar">
-        <ul>
-            <li>
-                <a href="reminders.html">
-                    <img class="navicon" onmouseover="this.src='images/reminder_cyan.svg'" 
-                    onmouseout="this.src='images/reminder_gray.svg'" src="images/reminder_gray.svg" alt="Reminders">
-                </a>
-            </li>
-            <li>
-                <a href="health.html">
-                    <img class="navicon" onmouseover="this.src='images/health_cyan.svg'" 
-                    onmouseout="this.src='images/health_gray.svg'" src="images/health_gray.svg" alt="Health">
-                </a>
-            </li>
-            <li>
-                <img class="navicon" src="images/home_cyan.svg" alt="Input Water" id="openModal">
-                <div id="inputModal" class="water-modal">
-                    <div class="water-modal-content">
-                        <span class="close">&times;</span>
-                        <h3>Input Water</h3>
-                        <input type="number" id="water-input-amount" min="0" value="0" step="100">
-                        <button id="add-water-modal" onclick="getWaterInput()">Add Water</button>
+        <div id="water"></div>
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="reminders.html">
+                        <img class="navicon" onmouseover="this.src='images/reminder_cyan.svg'" 
+                        onmouseout="this.src='images/reminder_gray.svg'" src="images/reminder_gray.svg" alt="Reminders">
+                    </a>
+                </li>
+                <li>
+                    <a href="health.html">
+                        <img class="navicon" onmouseover="this.src='images/health_cyan.svg'" 
+                        onmouseout="this.src='images/health_gray.svg'" src="images/health_gray.svg" alt="Health">
+                    </a>
+                </li>
+                <li>
+                    <img class="navicon" src="images/home_cyan.svg" alt="Input Water" id="openModal">
+                    <div id="inputModal" class="water-modal">
+                        <div class="water-modal-content">
+                            <span class="close">&times;</span>
+                            <h3>Input Water</h3>
+                            <input type="number" id="water-input-amount" min="0" value="0" step="100">
+                            <button id="add-water-modal" onclick="getWaterInput()">Add Water</button>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li>
-                <a href="bottles.html">
-                    <img class="navicon" onmouseover="this.src='images/bottle_cyan.svg'" 
-                    onmouseout="this.src='images/bottle_gray.svg'" src="images/bottle_gray.svg" alt="Bottles">
-                </a>
-            </li>
-            <li>
-                <a href="me.html">
-                    <img class="navicon" onmouseover="this.src='images/me_cyan.svg'" 
-                    onmouseout="this.src='images/me_gray.svg'" src="images/me_gray.svg" alt="Me">
-                </a>
-            </li>
-        </ul>
+                </li>
+                <li>
+                    <a href="bottles.html">
+                        <img class="navicon" onmouseover="this.src='images/bottle_cyan.svg'" 
+                        onmouseout="this.src='images/bottle_gray.svg'" src="images/bottle_gray.svg" alt="Bottles">
+                    </a>
+                </li>
+                <li>
+                    <a href="me.html">
+                        <img class="navicon" onmouseover="this.src='images/me_cyan.svg'" 
+                        onmouseout="this.src='images/me_gray.svg'" src="images/me_gray.svg" alt="Me">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <script src="backend.js"></script>
     </div>
-    <script src="backend.js"></script>
 </body>
 </html>

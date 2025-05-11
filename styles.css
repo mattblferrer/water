@@ -11,7 +11,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
 }
 
  @keyframes fadeinall {
@@ -117,6 +117,7 @@ html, body {
     font-size: 40px;
     font-weight: lighter;
     letter-spacing: 1px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 #water-amount-container {
     padding-bottom: 1%;
@@ -138,6 +139,22 @@ html, body {
     height: 0%;
     background-color: #39BECB;
     z-index: 2;
+}
+.topbar {
+    opacity: 1;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 60px;
+    background-color: #FDFDFD;
+    z-index: 99;
+}
+.topbar h1 {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 5%;
 }
 .navbar {
     opacity: 1;
