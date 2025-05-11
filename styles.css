@@ -3,7 +3,7 @@
  * FERRER, Matt
  */
 
- html, body {
+html, body {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -38,7 +38,7 @@
     aspect-ratio: 9/16;
     height: 90vh;
     width: auto;
-    background: white;
+    background: #efecef;
     overflow: auto;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     position: relative;
@@ -51,7 +51,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
 }
 #fadein {
     opacity: 1;
@@ -99,14 +98,14 @@
     opacity: 1;
     position: absolute;
     top: 70%;
-    width: auto;
+    width: 100%;
     height: auto;
     z-index: 2;
 }
 #amount-container {
     opacity: 1;
     position: absolute;
-    top: 40%;
+    top: 38%;
     width: 100%;
     height: 20%;
     text-align: center;
@@ -115,13 +114,18 @@
     -ms-transform: translateY(-50%);
     z-index: 3;
 }
-#water-amount, #target-amount, #ml {
+#water-amount, #target-amount, #ml, #me-header-title {
     width: 100%;
     display: inline;
+    font-size: 45px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 #water-amount-container {
     padding-bottom: 1%;
     border-bottom: 1px solid #000000;
+    width: 50%;
 }
 #target-amount-container {
     padding-top: 1%;
@@ -136,11 +140,27 @@
 #water {
     opacity: 1;
     position: absolute;
-    bottom: 15%;
+    bottom: 13%;
     width: 100%;
     height: 0%;
     background-color: #39BECB;
     z-index: 2;
+}
+.topbar {
+    opacity: 1;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 60px;
+    background-color: #FDFDFD;
+    z-index: 99;
+}
+.topbar h1 {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 5%;
 }
 .navbar {
     opacity: 1;
@@ -148,8 +168,8 @@
     bottom: 0%;
     width: 100%;
     background-color: #FDFDFD;
+    border-top: 3px solid #b4b4b4;
     z-index: 99;
-
     height: 10vh;
     max-height: 95px;
 }
@@ -160,7 +180,6 @@
     max-height: 60px;
     width: auto;
 }
-
 ul {
     width: 100%;
     max-height: 100%;
@@ -175,4 +194,49 @@ ul {
 li {
     height: 100%;
     text-align: center;
+}
+
+.water-modal {
+    display:none;
+    position: absolute;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fdfdfd;
+    width: 90%;
+    padding: 15px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    z-index: 200;
+}
+
+.water-modal h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.water-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.water-modal input {
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.water-modal button {
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
 }
