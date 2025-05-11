@@ -40,7 +40,7 @@ html, body {
     height: 90vh;
     width: auto;
     background: #efecef;
-    overflow: auto;
+    overflow: hidden;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     position: relative;
     display: flex;
@@ -98,7 +98,7 @@ html, body {
 #wave {
     opacity: 1;
     position: absolute;
-    top: 70%;
+    top: 65vh;
     width: 100%;
     height: auto;
     z-index: 2;
@@ -141,14 +141,11 @@ html, body {
 #water {
     opacity: 1;
     position: absolute;
-    bottom: 13%;
+    bottom: 10vh;
     width: 100%;
     height: 0%;
     background-color: #39BECB;
     z-index: 2;
-}
-#bottle-options {
-    height: 3vh;
 }
 .topbar {
     opacity: 1;
@@ -164,7 +161,6 @@ html, body {
     display: flex;
     align-items: center;
     position: absolute;
-    top: 1vh;
     left: 3vh;
 }
 .bottle-options {
@@ -178,7 +174,7 @@ html, body {
     right: 5%;
     border: none;
     font-weight: bold;
-    font-size: 20px;;
+    font-size: 2.5vh;
     text-align: right;
 }
 .bottle-options:focus {
@@ -198,7 +194,8 @@ html, body {
 .navicon {
     max-height: 10vh;
     width: auto;
-    height: 6vh;
+    height: 8vh;
+    
 }
 ul {
     width: 100%;
