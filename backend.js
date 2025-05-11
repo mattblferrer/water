@@ -3,11 +3,24 @@
  * FERRER, Matt
  */
 
-// HTML elements
+// splash screen fade in effect
 window.onload = function() {
     setTimeout(function() {
         document.getElementById("fadein").remove();
     },1000);
+};
+
+// manual add water input - modal screen
+const modal = document.getElementById("inputModal");
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.querySelector(".close");
+
+openBtn.onclick = () => {
+    modal.style.display = "block";
+};
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
 };
 
 // variable declarations
