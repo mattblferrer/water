@@ -114,7 +114,7 @@ html, body {
 #water-amount, #target-amount, #ml, #me-header-title {
     width: 100%;
     display: inline;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: lighter;
     letter-spacing: 1px;
     font-family: 'Bebas Neue', sans-serif;
@@ -161,7 +161,7 @@ html, body {
     position: absolute;
     bottom: 0%;
     width: 100%;
-    height: 83px;
+    height: 13%;
     padding-bottom: 30px;
     background-color: #FDFDFD;
     border-top: 3px solid #b4b4b4;
