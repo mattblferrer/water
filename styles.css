@@ -120,7 +120,7 @@ html, body {
     display: inline;
     font-size: 5vh;
     font-weight: lighter;
-    letter-spacing: 1px;
+    letter-spacing: 0.25vh;
     font-family: 'Bebas Neue', sans-serif;
 }
 #water-amount-container {
@@ -196,7 +196,6 @@ html, body {
     max-height: 10vh;
     width: auto;
     height: 8vh;
-    
 }
 ul {
     width: 100%;
