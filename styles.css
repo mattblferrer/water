@@ -12,11 +12,7 @@ html, body {
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
-<<<<<<< HEAD
     font-family: 'Poppins', Helvetica, Arial, sans-serif;
-=======
-    overflow: hidden;
->>>>>>> 07486e5a1ebf1f58bdd28dffd99fe007c53ebc65
 }
 
  @keyframes fadeinall {
