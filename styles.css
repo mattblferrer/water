@@ -169,7 +169,7 @@ li {
     text-align: center;
 }
 
-.modal {
+.water-modal {
     display:none;
     position: absolute;
     bottom: 110px;
@@ -183,24 +183,24 @@ li {
     z-index: 200;
 }
 
-.modal h3 {
+.water-modal h3 {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.modal-content {
+.water-modal-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.modal input {
+.water-modal input {
   padding: 8px;
   font-size: 16px;
   width: 100%;
 }
 
-.modal button {
+.water-modal button {
   padding: 8px;
   font-size: 16px;
 }
