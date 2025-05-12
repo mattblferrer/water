@@ -32,7 +32,9 @@ setInterval(function() {
     if (lastTime == null) {
         lastTime = new Date().getTime();
     }
-    timer = Math.floor((currentTime - lastTime) / 1000);
+    if (reminderTime == null) {
+        reminderTime = 0;
+    }
     if (timer != 0 || timer != null) {
         currentTime = new Date().getTime();
         timer = Math.floor((reminderTime - (currentTime - lastTime)) / 1000);
