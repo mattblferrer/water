@@ -18,7 +18,7 @@ window.onload = function() {
 
     // get current water amount from local storage
     waterAmount = localStorage.getItem("waterAmount");
-    if (waterAmount == null) {
+    if (waterAmount == null || isNaN(waterAmount)) {
         waterAmount = 0;
     }
     changeWaterLevel(waterAmount);
@@ -29,10 +29,10 @@ setInterval(function() {
      // get time since last reminder from local storage
     lastTime = localStorage.getItem("lastTime");
     reminderTime = localStorage.getItem("reminderTime");
-    if (lastTime == null) {
+    if (lastTime == null || isNaN(lastTime)) {
         lastTime = new Date().getTime();
     }
-    if (reminderTime == null) {
+    if (reminderTime == null || isNaN(reminderTime)) {
         reminderTime = 0;
     }
     if (timer != 0 || timer != null) {
