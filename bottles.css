@@ -13,3 +13,21 @@
     justify-content: center;
 }
 
+.bottle {
+    width: 80%;
+    height: 10vh;
+    background: #fdfdfd;
+    margin: 2vh 0;
+    padding: 1.5vh;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    border-radius: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottle:hover {
+    background: #bbbbbb;
+    cursor: pointer;
+}
+
