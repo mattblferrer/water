@@ -40,7 +40,21 @@
             <hr class="line-break">
             <div class="health-content">
                 <div id="daily" class ="content-section">
-                    
+                    <h4 id="current-date"></h4>
+                    <script>
+                        // Function to update the date in the 'current-date' element
+                        function updateDate() {
+                        const dateElement = document.getElementById("current-date");
+                        const today = new Date();
+                        const options = { month: 'long', day: 'numeric' };
+                        const formattedDate = today.toLocaleDateString('en-US', options).toLowerCase();
+                        console.log("Formatted Date:", formattedDate);  // Check if the date is being formatted correctly
+                        dateElement.textContent = formattedDate;
+                        }
+
+                        // Call the function when the DOM content is fully loaded
+                        document.addEventListener("DOMContentLoaded", updateDate);
+                    </script>
                 </div>
                 <div id="weekly" class ="content-section" style="display:none;">
                     <p>weekly</p>

@@ -20,3 +20,15 @@
 .health-menu li.active {
     color: #d42c2c;
 }
+
+.health-menu li:hover {
+    color: #d42c2c;
+}
+#daily h4 {
+    text-align: right;
+    padding-right: 2.5vh;
+    margin: 1.5vh 0;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 3vh;
+    font-weight: lighter;
+}
