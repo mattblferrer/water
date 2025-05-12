@@ -138,3 +138,15 @@ if (!dropdown.contains(e.target)) {
     dropdown.classList.remove('open');
 }
 });
+
+// function to handle health tab
+function showContent(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        if (section.id === sectionId) {
+            section.style.display = 'block';
+        } else {
+            section.style.display = 'none';
+        }
+    });
+}
