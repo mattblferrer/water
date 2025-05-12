@@ -33,9 +33,9 @@
         </div>
         <div id="page-background">
             <ul class="health-menu">
-                <li onclick ="showContent('daily')">daily</li>
-                <li onclick ="showContent('weekly')">weekly</li>
-                <li onclick ="showContent('monthly')">monthly</li>
+                <li class="active" onclick ="showContent('daily', this)">daily</li>
+                <li onclick ="showContent('weekly', this)">weekly</li>
+                <li onclick ="showContent('monthly', this)">monthly</li>
             </ul>
             <div class="health-content">
                 <div id="daily" class ="content-section">

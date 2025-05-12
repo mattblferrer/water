@@ -3,8 +3,20 @@
     flex-direction: row;
     align-items: center;
     list-style: none;
-    width: 100%;
-    justify-content: space-evenly;
+    width: 90%;
+    justify-content: space-around;
     position: absolute;
     top: 10vh;
+    padding: 0;
+    margin: 2vh 0;
+}
+
+.health-menu li {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 4vh;
+    color: #737373;
+}
+
+.health-menu li.active {
+    color: #d42c2c;
 }
