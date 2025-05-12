@@ -53,7 +53,7 @@
     letter-spacing: 1px;
     font-size: 3vh;
     padding-left: 2vh;
-    font-weight: lighter ;
+    font-weight: lighter;
 }
 #input-intake {
     border: none;
@@ -62,4 +62,19 @@
     width: 95%;
     font-weight: bold;
     text-align: left;
+}
+#total-water-intake {
+    height: 14vh;
+    align-items: left; 
+    display: flex;
+    top: 30vh;
+}
+#total-intake {
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 3vh;
+    padding-left: 2vh;
+    color: #2a747b;
+    font-weight: bold;
+    margin-top: 0;
 }
