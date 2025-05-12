@@ -27,13 +27,23 @@
     opacity: 0.8;
     display: flex;
     flex-direction: column;
+    text-align: left;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
 }
+.container ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    margin-left: 2vh;
+    padding: 0;
+    margin-right: 2vh;
+}
 #target-daily-intake {
     height: 14vh;
-    align-items: left;
+    align-items: left; 
     display: flex;
     top: 14vh;
 }
@@ -43,9 +53,13 @@
     letter-spacing: 1px;
     font-size: 3vh;
     padding-left: 2vh;
+    font-weight: lighter ;
 }
 #input-intake {
     border: none;
+    color: #2a747b;
+    font-size: 3vh;
+    width: 95%;
+    font-weight: bold;
+    text-align: left;
 }
-
-
