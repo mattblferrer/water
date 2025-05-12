@@ -8,7 +8,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-color: rgb(226, 226, 226);
+    background-color: #f0f1f5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@ html, body {
     aspect-ratio: 9/16;
     height: 90vh;
     width: auto;
-    background: #efecef;
+    background: #efecec;
     overflow: hidden;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     position: relative;
