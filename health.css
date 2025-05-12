@@ -1,0 +1,10 @@
+.health-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 10vh;
+}
