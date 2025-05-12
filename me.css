@@ -26,18 +26,15 @@
     width: 90%;
     opacity: 0.8;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
 }
 #target-daily-intake {
-    height: 10vh;
-    align-items: center;
+    height: 14vh;
+    align-items: left;
     display: flex;
-    justify-content: center;
     top: 14vh;
 }
 #container-title {
@@ -45,5 +42,6 @@
     text-align: left;
     letter-spacing: 1px;
     font-size: 3vh;
+    padding-left: 2vh;
 }
 
