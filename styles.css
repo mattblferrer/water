@@ -12,7 +12,6 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
     font-family: 'Poppins', Helvetica, Arial, sans-serif;
 }
 
