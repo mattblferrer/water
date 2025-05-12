@@ -191,6 +191,8 @@ html, body {
     z-index: 99;
     height: 10vh;
     max-height: 95px;
+    align-items: center;
+    display: flex;
 }
 .navicon {
     max-height: 10vh;
@@ -207,6 +209,7 @@ ul {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+    transform: translateY(0.5vh);
 }
 li {
     height: 100%;
@@ -233,28 +236,28 @@ li {
 }
 
 .water-modal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .water-modal input {
-  padding: 8px;
-  font-size: 16px;
-  width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
 }
 
 .water-modal button {
-  padding: 8px;
-  font-size: 16px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 /* Close button */
 .close {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 20px;
-  cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
