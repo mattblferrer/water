@@ -6,11 +6,6 @@ let totalWaterIntake = 0;
 var currentTime, reminderTime, lastTime, timer = 0;
 
 window.onload = function() {  // for home page
-    // splash screen fade in effect
-    setTimeout(function() {  
-        document.getElementById("fadein").remove();
-    },1000);
-
     // get current water amount from local storage
     waterAmount = localStorage.getItem("waterAmount");
     if (waterAmount == null || isNaN(waterAmount)) {
@@ -57,8 +52,18 @@ setInterval(function() {
         (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
 }, 100);
 
-function setReminder(reminderTime) {
+function setReminder() {
+    reminderTime = parseInt(document.getElementById("reminder-time-input").value) * 60000;
+    if (reminderTime < 0) {
+        reminderTime = 0;
+    }
     document.getElementById("timer-text").style.color = "black";
     localStorage.setItem("lastTime", currentTime);
     localStorage.setItem("reminderTime", reminderTime);
+}
+
+function changeWaterLevel(newAmount) {
+    waterAmount = newAmount;
+    document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
+    document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
 }

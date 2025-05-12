@@ -23,3 +23,21 @@
     z-index: 200;
     font-size: 3vh;
 }
+#reminder-time-text {
+    font-size: 2vh;
+    text-align: center;
+}
+#reminder-time-ui {
+    height: 14vh;
+    top: 30vh;
+    padding: 2vh 0;
+}
+#reminder-time-ui ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    margin-left: 2vh;
+    padding: 0;
+    margin-right: 2vh;
+}

@@ -34,7 +34,15 @@
             <div id="timer">
                 <h1 id="timer-text">00:00:00</h1>
             </div>
-            <button id="start-button" class="button" onclick="setReminder(7200000)">Start Timer</button>
+            <button id="start-button" class="button" onclick="setReminder()">Start Timer</button>
+            <div id="reminder-time-ui">
+                <h2 id="reminder-time-text">Reminder Time (in minutes)</h1>
+                <ul>
+                    <li>
+                        <input id="reminder-time-input" type="number" min="0" value="120" step="5">
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="navbar">
             <ul>
