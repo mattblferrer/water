@@ -3,6 +3,7 @@
  * FERRER, Matt
  */
 
+ /**SHARED STYLES*/
 html, body {
     margin: 0;
     padding: 0;
@@ -15,7 +16,7 @@ html, body {
     font-family: 'Poppins', Helvetica, Arial, sans-serif;
 }
 
- @keyframes fadeinall {
+@keyframes fadeinall {
     0% {
         opacity: 1; 
     }
@@ -72,6 +73,12 @@ html, body {
     -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s; 
 }
+#me-header-title, #bottles-header-title {
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+ /**SPLASH SCREEN*/
 #splash {
     opacity: 1;
     position: fixed;
@@ -95,6 +102,39 @@ html, body {
     width: 100%;
     z-index: 100;
 }
+.navbar {
+    opacity: 1;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    background-color: #FDFDFD;
+    border-top: 3px solid #b4b4b4;
+    z-index: 99;
+    height: 10vh;
+    max-height: 95px;
+}
+.navicon {
+    max-height: 10vh;
+    width: auto;
+    height: 8vh;
+}
+ul {
+    width: 100%;
+    max-height: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+li {
+    height: 100%;
+    text-align: center;
+}
+
+/**HOME PAGE*/
 #wave {
     opacity: 1;
     position: absolute;
@@ -115,7 +155,7 @@ html, body {
     -ms-transform: translateY(-50%);
     z-index: 3;
 }
-#water-amount, #target-amount, #ml, #me-header-title {
+#water-amount, #target-amount, #ml {
     width: 100%;
     display: inline;
     font-size: 5vh;
@@ -181,37 +221,6 @@ html, body {
 .bottle-options:focus {
     outline: none;
 }
-.navbar {
-    opacity: 1;
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-    background-color: #FDFDFD;
-    border-top: 3px solid #b4b4b4;
-    z-index: 99;
-    height: 10vh;
-    max-height: 95px;
-}
-.navicon {
-    max-height: 10vh;
-    width: auto;
-    height: 8vh;
-}
-ul {
-    width: 100%;
-    max-height: 100%;
-    padding-left: 1%;
-    padding-right: 1%;
-    list-style-type: none;
-    justify-content: space-evenly;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-}
-li {
-    height: 100%;
-    text-align: center;
-}
 
 .water-modal {
     display:none;
@@ -249,7 +258,6 @@ li {
   font-size: 16px;
 }
 
-/* Close button */
 .close {
   position: absolute;
   top: 8px;
@@ -257,4 +265,6 @@ li {
   font-size: 20px;
   cursor: pointer;
 }
+
+/**BOTTLES PAGE*/
 
