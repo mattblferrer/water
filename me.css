@@ -1,0 +1,41 @@
+#me-background {
+    background-color: #39becb;
+}
+
+#me-header {
+    background-color: #efecec;
+    width: 90%;
+    height: 10%;
+    opacity: 0.8;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+#me-header-title {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 5vh;
+    color: #000;
+    letter-spacing: 0.25vh;
+    align-items: center;
+    transform: translateY(5%);
+}
+
+#target-daily-intake {
+    background-color: #efecec;
+    width: 90%;
+    height: 10%;
+    opacity: 0.8;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+#target-daily-intake h2 {
+    font-family: 'LeagueGothic-Regular', sans-serif;
+}
+

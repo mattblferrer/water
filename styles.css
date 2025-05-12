@@ -35,6 +35,13 @@ html, body {
     } 
 }
 
+@font-face {
+  font-family: 'League Gothic';
+  src: url('fonts/LeagueGothic-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .phone-wrapper {
     aspect-ratio: 9/16;
     height: 90vh;
@@ -115,7 +122,7 @@ html, body {
     -ms-transform: translateY(-50%);
     z-index: 3;
 }
-#water-amount, #target-amount, #ml, #me-header-title {
+#water-amount, #target-amount, #ml {
     width: 100%;
     display: inline;
     font-size: 5vh;
