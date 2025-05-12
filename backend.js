@@ -24,7 +24,7 @@ closeBtn.onclick = () => {
 };
 
 // variable declarations
-const bottles = new Map();
+let selectedBottle = 0;
 let waterAmount = 0;
 let targetAmount = 3000;
 
