@@ -37,7 +37,7 @@ html, body {
 
 @font-face {
   font-family: 'League Gothic';
-  src: url('fonts/LeagueGothic-Regular.otf') format('otf');
+  src: url('./fonts/LeagueGothic-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -79,7 +79,7 @@ html, body {
     -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s; 
 }
-#me-header-title, #bottles-header-title {
+#bottles-header-title {
     font-size: 3vh;
     font-weight: bold;
 }

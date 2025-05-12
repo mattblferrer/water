@@ -5,37 +5,45 @@
 #me-header {
     background-color: #efecec;
     width: 90%;
-    height: 10%;
+    height: 10vh;
     opacity: 0.8;
     text-align: center;
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 2.5vh;
 }
 
 #me-header-title {
     font-family: 'League Spartan', sans-serif;
-    font-size: 5vh;
+    font-size:5vh;
     color: #000;
-    letter-spacing: 0.25vh;
     align-items: center;
     transform: translateY(5%);
 }
-
-#target-daily-intake {
+.container {
     background-color: #efecec;
     width: 90%;
-    height: 10%;
     opacity: 0.8;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute
+}
+#target-daily-intake {
+    height: 10vh;
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-top: 15%;
+    top: 14vh;
 }
-
-#target-daily-intake h2 {
-    font-family: 'LeagueGothic-Regular', sans-serif;
+#container-title {
+    font-family: 'League Gothic', sans-serif;
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 3vh;
 }
 
