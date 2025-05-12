@@ -1,0 +1,12 @@
+#reminders-ui {
+    position: absolute;
+    width: 100%;
+    top: 8vh;
+}
+#timer-text {
+    font-size: 10vh;
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+    font-weight: lighter;
+    letter-spacing: 0.5vh;
+}
