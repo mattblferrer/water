@@ -10,3 +10,16 @@
     font-weight: lighter;
     letter-spacing: 0.5vh;
 }
+#start-button {
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fdfdfd;
+    width: 90%;
+    padding: 1vh;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    border-radius: 2vh;
+    z-index: 200;
+    font-size: 3vh;
+}
