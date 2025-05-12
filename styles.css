@@ -173,6 +173,7 @@ html, body {
 }
 #page-background {
     background-color: #efecec;
+    padding-top: 8vh;
     width: 90%;
     height: 75vh;
     opacity: 0.8;
@@ -181,4 +182,11 @@ html, body {
     margin-top: 2.5vh;
     margin-left: auto;
     margin-right: auto;
+}
+.line-break {
+    width: 90%;
+    border: none;
+    border-top: 3px solid #737373;
+    position: relative;
+    margin: 0 auto;
 }
