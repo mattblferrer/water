@@ -7,10 +7,10 @@
 let selectedBottle = 0;
 let waterAmount = 0;
 let targetAmount = 3000;
+let totalWaterIntake = 0;
 var currentTime, reminderTime, lastTime, timer = 0;
 
-// runs when any page loads (except for the splash screen)
-window.onload = function() {
+window.onload = function() {  // for home page
     // splash screen fade in effect
     setTimeout(function() {  
         document.getElementById("fadein").remove();
@@ -26,37 +26,14 @@ window.onload = function() {
     if (targetAmount == null || isNaN(targetAmount)) {
         targetAmount = 3000;
     }
+    // get total water intake from local storage
+    totalWaterIntake = localStorage.getItem("totalWaterIntake");
+    if (totalWaterIntake == null || isNaN(totalWaterIntake)) {
+        totalWaterIntake = 0;
+    }
     changeWaterLevel(waterAmount);
     document.getElementById("target-amount").innerHTML = targetAmount;
 };
-
-// timer function runs every 100 milliseconds
-setInterval(function() {
-     // get time since last reminder from local storage
-    lastTime = localStorage.getItem("lastTime");
-    reminderTime = localStorage.getItem("reminderTime");
-    if (lastTime == null || isNaN(lastTime)) {
-        lastTime = new Date().getTime();
-    }
-    if (reminderTime == null || isNaN(reminderTime)) {
-        reminderTime = 0;
-    }
-    if (timer != 0 || timer != null) {
-        currentTime = new Date().getTime();
-        timer = Math.floor((reminderTime - (currentTime - lastTime)) / 1000);
-        if (reminderTime > 0 && timer <= 0) {
-            document.getElementById("timer-text").style.color = "red";
-        }
-    }
-    if (timer < 0) {
-        timer = 0;
-    }
-    let hr = Math.floor(timer / 3600);
-    let min = Math.floor(timer / 60) % 60;
-    let sec = timer % 60;
-    document.getElementById("timer-text").innerHTML = (hr < 10 ? "0" : "") + hr + ":" + 
-        (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
-}, 100);
 
 // backend functions
 function getWaterInput() {
@@ -64,6 +41,8 @@ function getWaterInput() {
     currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
     changeWaterLevel(inputAmount + currentAmount);
     localStorage.setItem("waterAmount", inputAmount + currentAmount);
+    totalWaterIntake = parseFloat(totalWaterIntake) + inputAmount;
+    localStorage.setItem("totalWaterIntake", totalWaterIntake);
 }
 
 function addBottle(bottleName, bottleWeight) {
@@ -94,12 +73,6 @@ function setTargetAmount() {
     }
     targetAmount = setAmount;
     localStorage.setItem("targetAmount", setAmount);
-}
-
-function setReminder(reminderTime) {
-    document.getElementById("timer-text").style.color = "black";
-    localStorage.setItem("lastTime", currentTime);
-    localStorage.setItem("reminderTime", reminderTime);
 }
 
 // manual add water input - modal screen
