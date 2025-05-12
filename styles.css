@@ -100,7 +100,7 @@ html, body {
     width: auto;
     height: 8vh;
 }
-ul {
+.navbar ul {
     width: 100%;
     max-height: 100%;
     padding-left: 1%;
@@ -115,7 +115,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
 }
-li {
+.navbar li {
     height: 100%;
     text-align: center;
 }
