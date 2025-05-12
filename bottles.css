@@ -1,7 +1,7 @@
 #bottles-list {
     position: absolute;
     width: 100%;
-    top: 20vh;
+    top: 10vh;
 }
 
 .column {
@@ -21,6 +21,7 @@
     padding: 1.5vh;
     box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
     border-radius: 2vh;
+    border: 3px solid #b4b4b4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,5 +30,15 @@
 .bottle:hover {
     background: #bbbbbb;
     cursor: pointer;
+}
+
+.bottle-name {
+    margin: 0.5vh 0;
+    font-size: 2.5vh;
+}
+
+.bottle-capacity {
+    margin: 0;
+    font-size: 1.5vh;
 }
 
