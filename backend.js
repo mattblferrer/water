@@ -18,6 +18,9 @@ window.onload = function() {
 
     // get current water amount from local storage
     waterAmount = localStorage.getItem("waterAmount");
+    if (waterAmount === null) {
+        waterAmount = 0;
+    }
     changeWaterLevel(waterAmount);
 };
 
