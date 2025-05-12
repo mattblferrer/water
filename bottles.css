@@ -3,3 +3,18 @@
     font-weight: bold;
 }
 
+#bottles-list {
+    position: absolute;
+    width: 100%;
+    top: 20vh;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+

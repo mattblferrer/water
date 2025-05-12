@@ -115,3 +115,37 @@ li {
     height: 100%;
     text-align: center;
 }
+.topbar {
+    opacity: 1;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 8vh;
+    background-color: #FDFDFD;
+    z-index: 99;
+}
+.topbar h1 {
+    font-size: 3vh;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0.5vh;
+    left: 3vh;
+}
+.bottle-options {
+    opacity: 1;
+    position: absolute;
+    top: 2vh;
+    width: 25vh;
+    height: 50%;
+    background-color: #FDFDFD;
+    z-index: 99;
+    right: 5%;
+    border: none;
+    font-weight: bold;
+    font-size: 2.5vh;
+    text-align: right;
+}
+.bottle-options:focus {
+    outline: none;
+}
