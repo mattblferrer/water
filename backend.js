@@ -36,9 +36,12 @@ setInterval(function() {
     if (timer != 0 || timer != null) {
         currentTime = new Date().getTime();
         timer = Math.floor((reminderTime - (currentTime - lastTime)) / 1000);
-        if (reminderTime > 0 && timer >= reminderTime) {
-            alert("Time to drink water!");
+        if (reminderTime > 0 && timer <= 0) {
+            document.getElementById("timer-text").style.color = "red";
         }
+    }
+    if (timer < 0) {
+        timer = 0;
     }
     let hr = Math.floor(timer / 3600);
     let min = Math.floor(timer / 60) % 60;
@@ -75,6 +78,7 @@ function changeWaterLevel(newAmount) {
 }
 
 function setReminder(reminderTime) {
+    document.getElementById("timer-text").style.color = "black";
     localStorage.setItem("lastTime", currentTime);
     localStorage.setItem("reminderTime", reminderTime);
 }
