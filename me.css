@@ -61,6 +61,7 @@
     width: 95%;
     font-weight: bold;
     text-align: left;
+    padding: 0 1vh;
 }
 #total-water-intake {
     height: 14vh;
