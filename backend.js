@@ -7,7 +7,7 @@
 let selectedBottle = 0;
 let waterAmount = 0;
 let targetAmount = 3000;
-let currentTime = Date.now();
+var currentTime, reminderTime, lastTime;
 
 // runs when any page loads (except for the splash screen)
 window.onload = function() {
@@ -24,18 +24,28 @@ window.onload = function() {
     changeWaterLevel(waterAmount);
 };
 
-// manual add water input - modal screen
-const modal = document.getElementById("inputModal");
-const openBtn = document.getElementById("openModal");
-const closeBtn = document.querySelector(".close");
-
-openBtn.onclick = () => {
-    modal.style.display = "block";
-};
-
-closeBtn.onclick = () => {
-    modal.style.display = "none";
-};
+// timer function runs every 100 milliseconds
+setInterval(function() {
+     // get time since last reminder from local storage
+    lastTime = localStorage.getItem("lastTime");
+    reminderTime = localStorage.getItem("reminderTime");
+    if (lastTime == null) {
+        lastTime = new Date().getTime();
+    }
+    timer = Math.floor((currentTime - lastTime) / 1000);
+    if (timer != 0 || timer != null) {
+        currentTime = new Date().getTime();
+        timer = Math.floor((reminderTime - (currentTime - lastTime)) / 1000);
+        if (reminderTime > 0 && timer >= reminderTime) {
+            alert("Time to drink water!");
+        }
+    }
+    let hr = Math.floor(timer / 3600);
+    let min = Math.floor(timer / 60) % 60;
+    let sec = timer % 60;
+    document.getElementById("timer-text").innerHTML = (hr < 10 ? "0" : "") + hr + ":" + 
+        (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
+}, 100);
 
 // backend functions
 function getWaterInput() {
@@ -64,6 +74,24 @@ function changeWaterLevel(newAmount) {
     document.getElementById("water-amount").innerHTML = waterAmount;
 }
 
+function setReminder(reminderTime) {
+    localStorage.setItem("lastTime", currentTime);
+    localStorage.setItem("reminderTime", reminderTime);
+}
+
+// manual add water input - modal screen
+const modal = document.getElementById("inputModal");
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.querySelector(".close");
+
+openBtn.onclick = () => {
+    modal.style.display = "block";
+};
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
+};
+
 // function to handle the dropdown menu
 const dropdown = document.querySelector('.dropdown');
 const selected = dropdown.querySelector('.dropdown-selected');
@@ -87,8 +115,3 @@ if (!dropdown.contains(e.target)) {
     dropdown.classList.remove('open');
 }
 });
-
-// function to handle reminder functionality
-function setReminder() {
-    
-}
