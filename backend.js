@@ -7,7 +7,7 @@
 let selectedBottle = 0;
 let waterAmount = 0;
 let targetAmount = 3000;
-var currentTime, reminderTime, lastTime;
+var currentTime, reminderTime, lastTime, timer = 0;
 
 // runs when any page loads (except for the splash screen)
 window.onload = function() {
@@ -21,7 +21,13 @@ window.onload = function() {
     if (waterAmount == null || isNaN(waterAmount)) {
         waterAmount = 0;
     }
+    // get target water amount from local storage
+    targetAmount = localStorage.getItem("targetAmount");
+    if (targetAmount == null || isNaN(targetAmount)) {
+        targetAmount = 3000;
+    }
     changeWaterLevel(waterAmount);
+    document.getElementById("target-amount").innerHTML = targetAmount;
 };
 
 // timer function runs every 100 milliseconds
@@ -77,6 +83,17 @@ function changeWaterLevel(newAmount) {
     document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
     document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
     document.getElementById("water-amount").innerHTML = waterAmount;
+}
+
+function setTargetAmount() {
+    let setAmount = parseFloat(document.getElementById("input-intake").value);
+    
+    if (isNaN(setAmount) || setAmount <= 0) {
+        alert("Please enter a valid target amount.");
+        return;
+    }
+    targetAmount = setAmount;
+    localStorage.setItem("targetAmount", setAmount);
 }
 
 function setReminder(reminderTime) {
