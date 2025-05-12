@@ -31,3 +31,13 @@
     cursor: pointer;
 }
 
+.bottle-name {
+    margin: 1vh 0;
+    font-size: 2.5vh;
+}
+
+.bottle-capacity {
+    margin: 0;
+    font-size: 1.5vh;
+}
+
