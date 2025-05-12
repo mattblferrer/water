@@ -3,11 +3,20 @@
  * FERRER, Matt
  */
 
-// splash screen fade in effect
+// variable declarations
+let selectedBottle = 0;
+let waterAmount = 0;
+let targetAmount = 3000;
+
 window.onload = function() {
-    setTimeout(function() {
+    // splash screen fade in effect
+    setTimeout(function() {  
         document.getElementById("fadein").remove();
     },1000);
+
+    // get current water amount from local storage
+    waterAmount = localStorage.getItem("waterAmount");
+    changeWaterLevel(waterAmount);
 };
 
 // manual add water input - modal screen
@@ -23,16 +32,12 @@ closeBtn.onclick = () => {
     modal.style.display = "none";
 };
 
-// variable declarations
-let selectedBottle = 0;
-let waterAmount = 0;
-let targetAmount = 3000;
-
 // backend functions
 function getWaterInput() {
     inputAmount = parseFloat(document.getElementById("water-input-amount").value);
     currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
     changeWaterLevel(inputAmount + currentAmount);
+    localStorage.setItem("waterAmount", inputAmount + currentAmount);
 }
 
 function addBottle(bottleName, bottleWeight) {
@@ -50,8 +55,8 @@ function computeWaterVolume(beforeWeight, afterWeight) {
 function changeWaterLevel(newAmount) {
     waterAmount = newAmount;
     document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
-    document.getElementById("water-amount").innerHTML = waterAmount;
     document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
+    document.getElementById("water-amount").innerHTML = waterAmount;
 }
 
 const dropdown = document.querySelector('.dropdown');

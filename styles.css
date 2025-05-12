@@ -84,31 +84,6 @@ html, body {
     font-size: 3vh;
     font-weight: bold;
 }
-
- /**SPLASH SCREEN*/
-#splash {
-    opacity: 1;
-    position: fixed;
-    scale: 0.9;
-    top: 25%;
-    left: 50%;
-    width: auto;
-    height: 12%;
-    aspect-ratio: auto;
-    transform: translate(-55%, -15%);
-    -webkit-transform: translate(-55%, -15%);
-    -ms-transform: translate(-55%, -15%);
-    z-index: 100;
-}
-#splash-bottom {
-    opacity: 1;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    width: 100%;
-    z-index: 100;
-}
 .navbar {
     opacity: 1;
     position: absolute;
@@ -177,4 +152,21 @@ li {
 }
 .bottle-options:focus {
     outline: none;
+}
+#wave {
+    opacity: 1;
+    position: absolute;
+    top: 65vh;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+}
+#water {
+    opacity: 1;
+    position: absolute;
+    bottom: 10vh;
+    width: 100%;
+    height: 0%;
+    background-color: #39BECB;
+    z-index: 2;
 }
