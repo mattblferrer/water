@@ -7,7 +7,9 @@
 let selectedBottle = 0;
 let waterAmount = 0;
 let targetAmount = 3000;
+let currentTime = Date.now();
 
+// runs when any page loads (except for the splash screen)
 window.onload = function() {
     // splash screen fade in effect
     setTimeout(function() {  
@@ -59,6 +61,7 @@ function changeWaterLevel(newAmount) {
     document.getElementById("water-amount").innerHTML = waterAmount;
 }
 
+// function to handle the dropdown menu
 const dropdown = document.querySelector('.dropdown');
 const selected = dropdown.querySelector('.dropdown-selected');
 const list = dropdown.querySelector('.dropdown-list');
@@ -81,3 +84,8 @@ if (!dropdown.contains(e.target)) {
     dropdown.classList.remove('open');
 }
 });
+
+// function to handle reminder functionality
+function setReminder() {
+    
+}
