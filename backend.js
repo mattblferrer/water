@@ -43,6 +43,8 @@ function getWaterInput() {
     localStorage.setItem("waterAmount", inputAmount + currentAmount);
     totalWaterIntake = parseFloat(totalWaterIntake) + inputAmount;
     localStorage.setItem("totalWaterIntake", totalWaterIntake);
+    lastTime = Date.now();
+    localStorage.setItem("lastTime", lastTime);
 }
 
 function addBottle(bottleName, bottleWeight) {
@@ -62,17 +64,6 @@ function changeWaterLevel(newAmount) {
     document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
     document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
     document.getElementById("water-amount").innerHTML = waterAmount;
-}
-
-function setTargetAmount() {
-    let setAmount = parseFloat(document.getElementById("input-intake").value);
-    
-    if (isNaN(setAmount) || setAmount <= 0) {
-        alert("Please enter a valid target amount.");
-        return;
-    }
-    targetAmount = setAmount;
-    localStorage.setItem("targetAmount", setAmount);
 }
 
 // manual add water input - modal screen
