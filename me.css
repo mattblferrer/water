@@ -35,7 +35,7 @@
 .container ul {
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 0;
     margin-left: 2vh;
     padding: 0;
@@ -73,18 +73,8 @@
     text-align: left;
     letter-spacing: 1px;
     font-size: 3vh;
-    padding-left: 2vh;
     color: #2a747b;
     font-weight: bold;
     margin-top: 0;
-}
-#reset-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#reset-button {
-    top: 45vh;
-    position: absolute;
-    width: 90%;
+    
 }
