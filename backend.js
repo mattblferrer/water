@@ -43,6 +43,8 @@ function getWaterInput() {
     localStorage.setItem("waterAmount", inputAmount + currentAmount);
     totalWaterIntake = parseFloat(totalWaterIntake) + inputAmount;
     localStorage.setItem("totalWaterIntake", totalWaterIntake);
+    lastTime = Date.now();
+    localStorage.setItem("lastTime", lastTime);
 }
 
 function addBottle(bottleName, bottleWeight) {
