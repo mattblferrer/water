@@ -43,11 +43,52 @@ function displayWaterIntakeHistory() {
         let minutes = date.getMinutes();   
         let seconds = date.getSeconds();
         let formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
         let historyItem = document.createElement("div");
+        let historyItemAmount = document.createElement("div");
+        let lineBreak1 = document.createElement("hr");
+        let historyItemTime = document.createElement("div");
+        let lineBreak2 = document.createElement("hr");
+        let deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        deleteButton.className = "button";
+        deleteButton.id = time;
+        deleteButton.onclick = function() {
+            delete waterIntakeHistory[time];
+            localStorage.setItem("waterIntakeHistory", JSON.stringify(waterIntakeHistory));
+            displayWaterIntakeHistory();
+        }
+
         historyItem.className = "history-item";
-        historyItem.innerHTML = `${formattedTime}, Amount: ${amount} ml`;
+        historyItemAmount.className = "history-item-amount";
+        historyItemTime.className = "history-item-time";
+
+        historyItemAmount.innerHTML = `${amount} ML`;
+        historyItemTime.innerHTML = formattedTime;
+        historyItem.appendChild(historyItemAmount);
+        historyItem.appendChild(lineBreak1);
+        historyItem.appendChild(historyItemTime);
+        historyItem.appendChild(lineBreak2);
+        historyItem.appendChild(deleteButton);
+        
         historyContainer.prepend(historyItem);
     }
+}
+
+// function to handle health tab
+function showContent(sectionId, element) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        if (section.id === sectionId) {
+            section.style.display = 'block';
+        } else {
+            section.style.display = 'none';
+        }
+    });
+
+    const menuItems = document.querySelectorAll('.health-menu li');
+    menuItems.forEach(item => item.classList.remove('active'));
+    element.classList.add('active');
 }
 
 function changeWaterLevel(newAmount) {

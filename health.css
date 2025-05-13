@@ -32,6 +32,17 @@
     font-size: 3vh;
     font-weight: lighter;
 }
+#water-intake-history {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+}
 .history-item {
-        
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1vh 2vh;
+    font-size: 2.5vh;
+    border-bottom: 3px solid #737373;
 }
