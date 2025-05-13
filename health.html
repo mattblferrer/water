@@ -60,10 +60,51 @@
                     </div>
                 </div>
                 <div id="weekly" class ="content-section" style="display:none;">
-                    <p>weekly</p>
+                    <h4 id="current-week"></h4>
+                    <script>
+                        // Function to update the week in the 'current-week' element
+                        function updateWeek() {
+                        const weekElement = document.getElementById("current-week");
+                        const today = new Date();
+                        const options = { month: 'long', day: 'numeric' };
+
+                        // get start of week (Sunday) and end of week (Saturday)
+                        let startOfWeek = new Date(today);
+                        startOfWeek.setDate(today.getDate() - today.getDay());
+                        startOfWeek = startOfWeek.toLocaleDateString('en-US', options).toLowerCase();
+                        let endOfWeek = new Date(today);
+                        endOfWeek.setDate(today.getDate() + (6 - today.getDay()));
+                        endOfWeek = endOfWeek.toLocaleDateString('en-US', options).toLowerCase();
+                        weekElement.textContent = startOfWeek + " to " + endOfWeek;
+                        }
+
+                        // Call the function when the DOM content is fully loaded
+                        document.addEventListener("DOMContentLoaded", updateWeek);
+                    </script>
+                    <hr class="line-break">
+                    <div id="weekly-intake-history">
+                        
+                    </div>
                 </div>
                 <div id="monthly" class ="content-section" style="display:none;">
-                    <p>monthly</p>
+                    <h4 id="current-month"></h4>
+                    <script>
+                        // Function to update the month in the 'current-month' element
+                        function updateMonth() {
+                        const monthElement = document.getElementById("current-month");
+                        const today = new Date();
+                        const options = { month: 'long', year: 'numeric' };
+                        const formattedMonth = today.toLocaleDateString('en-US', options).toLowerCase();
+                        monthElement.textContent = formattedMonth;
+                        }
+
+                        // Call the function when the DOM content is fully loaded
+                        document.addEventListener("DOMContentLoaded", updateMonth);
+                    </script>
+                    <hr class="line-break">
+                    <div id="monthly-intake-history">
+
+                    </div>
                 </div>
             </div>
         </div>
