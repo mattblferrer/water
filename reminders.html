@@ -49,12 +49,15 @@
                     </li>
                 </ul>
             </div>
-            <!-- <button id="start-button" class="button" onclick="setReminder()">Start Timer</button> -->
-            <div id="reminder-time-ui">
-                <h2 id="reminder-time-text">Reminder Time (in minutes)</h1>
+            <hr class="line-break">
+            <div class="reminder-container">
+                <h2>Remind me every (in minutes)</h2>
                 <ul>
                     <li>
                         <input id="reminder-time-input" type="number" min="0" value="120" step="5">
+                    </li>
+                    <li>
+                        <button id="start-button" class="button" onclick="setReminder()">Start</button>
                     </li>
                 </ul>
             </div>
