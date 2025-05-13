@@ -46,7 +46,7 @@ function displayWaterIntakeHistory() {
         let historyItem = document.createElement("div");
         historyItem.className = "history-item";
         historyItem.innerHTML = `${formattedTime}, Amount: ${amount} ml`;
-        historyContainer.appendChild(historyItem);
+        historyContainer.prepend(historyItem);
     }
 }
 
