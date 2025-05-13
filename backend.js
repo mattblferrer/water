@@ -118,4 +118,4 @@ function showContent(sectionId, element) {
     menuItems.forEach(item => item.classList.remove('active'));
     element.classList.add('active');
 }
-                 
+             

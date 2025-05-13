@@ -25,18 +25,34 @@
     z-index: 200;
     font-size: 3vh;
 }
-#reminder-container ul {
+.reminder-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+.reminder-container ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
 }
-#reminder-container h2 {
+.reminder-container h2 {
     font-weight: lighter;
     font-family: 'League Gothic', sans-serif;
     margin: 2vh 0;
     padding-left: 2vh;
+}
+.toggle {
+    height: 8vh;
+    width: 8vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1vh;
+    cursor: pointer;
 }
 #reminder-time-text {
     font-size: 2vh;

@@ -67,3 +67,13 @@ function changeWaterLevel(newAmount) {
     document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
     document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
 }
+
+function toggleReminder() {
+    const img = document.getElementById("reminder-toggle");
+
+    if (img.src.includes("button_on.svg")) {
+        img.src = "images/button_off.svg";
+    } else {
+        img.src = "images/button_on.svg";
+    }
+}
