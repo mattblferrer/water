@@ -1,18 +1,20 @@
-#reminders-ui {
-    position: absolute;
-    width: 100%;
-    top: 8vh;
+#drink-text {
+    color: #737373;
+    font-size: 3vh;
+    font-family: 'League Gothic', sans-serif;
+    font-weight: lighter;
+    margin: 0.5vh;
+    text-align: center;
 }
 #timer-text {
     font-size: 10vh;
     font-family: 'Bebas Neue', sans-serif;
     text-align: center;
     font-weight: lighter;
-    letter-spacing: 0.5vh;
+    margin: 0;
 }
 #start-button {
-    position: absolute;
-    top: 20vh;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
     background: #fdfdfd;
@@ -22,6 +24,19 @@
     border-radius: 2vh;
     z-index: 200;
     font-size: 3vh;
+}
+#reminder-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+#reminder-container h2 {
+    font-weight: lighter;
+    font-family: 'League Gothic', sans-serif;
+    margin: 2vh 0;
+    padding-left: 2vh;
 }
 #reminder-time-text {
     font-size: 2vh;

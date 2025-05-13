@@ -23,6 +23,7 @@
         <dotlottie-wc id="wave" src="https://lottie.host/e2c21192-1172-4e0f-9ee8-46d8de17c7f2/ttPI0yMpMX.lottie" autoplay loop speed="0.5"></dotlottie-wc>
         <div id="water"></div>
         <div class="topbar">
+            <h1>Reminders</h1>
             <select class="bottle-options">
                 <option value="0">Owala</option>
                 <option value="1">Hydroflask</option>
@@ -30,11 +31,25 @@
                 <option value="3">Kleankanteen</option>
             </select>
         </div>
-        <div id="reminders-ui">
+        <div id="page-background">
+            <div>
+                <h3 id="drink-text">drink</h3>
+            </div>
             <div id="timer">
                 <h1 id="timer-text">00:00:00</h1>
             </div>
-            <button id="start-button" class="button" onclick="setReminder()">Start Timer</button>
+            <hr class="line-break">
+            <div id="reminder-container">
+                <ul>
+                    <li>
+                        <h2>Get reminders to drink water</h2>>
+                    </li>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
+            <!-- <button id="start-button" class="button" onclick="setReminder()">Start Timer</button> -->
             <div id="reminder-time-ui">
                 <h2 id="reminder-time-text">Reminder Time (in minutes)</h1>
                 <ul>
