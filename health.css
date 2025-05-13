@@ -36,7 +36,9 @@
     display: flex;
     flex-direction: column;
     width: 90%;
+    height: 53vh;
     margin: 0 auto;
+    overflow: auto;
 }
 .history-item {
     display: flex;
