@@ -38,7 +38,7 @@ function displayWaterIntakeHistory() {
 
     for (let time in waterIntakeHistory) {
         let date = new Date(parseInt(time));
-        if (date != new Date()) continue;  // skip if not today
+        if ((new Date().toDateString()) != date.toDateString()) continue;  // skip if not today
 
         // format the date to show only time
         let amount = waterIntakeHistory[time];
