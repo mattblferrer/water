@@ -8,6 +8,7 @@ let selectedBottle = 0;
 let waterAmount = 0;
 let targetAmount = 3000;
 let totalWaterIntake = 0;
+let waterIntakeHistory = {};
 var currentTime, reminderTime, lastTime, timer = 0;
 
 window.onload = function() {  // for home page
@@ -31,6 +32,15 @@ window.onload = function() {  // for home page
     if (totalWaterIntake == null || isNaN(totalWaterIntake)) {
         totalWaterIntake = 0;
     }
+    // get water intake history from local storage
+    waterIntakeHistory = localStorage.getItem("waterIntakeHistory");
+    if (waterIntakeHistory == null) {
+        waterIntakeHistory = {};
+    }
+    else {
+        waterIntakeHistory = JSON.parse(waterIntakeHistory);
+    }
+
     changeWaterLevel(waterAmount);
     document.getElementById("target-amount").innerHTML = targetAmount;
 };
@@ -45,6 +55,11 @@ function getWaterInput() {
     localStorage.setItem("totalWaterIntake", totalWaterIntake);
     lastTime = Date.now();
     localStorage.setItem("lastTime", lastTime);
+
+    // update water intake history
+    currentTime = Date.now();
+    waterIntakeHistory[currentTime] = inputAmount;
+    localStorage.setItem("waterIntakeHistory", JSON.stringify(waterIntakeHistory));
 }
 
 function addBottle(bottleName, bottleWeight) {

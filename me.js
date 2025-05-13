@@ -17,12 +17,6 @@ window.onload = function() {  // for me page
     document.getElementById("total-intake").innerHTML = totalWaterIntake;
 }
 
-function changeWaterLevel(newAmount) {
-    waterAmount = newAmount;
-    document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
-    document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
-}
-
 function setTargetAmount() {
     let setAmount = parseFloat(document.getElementById("input-intake").value);
     
@@ -42,5 +36,5 @@ function resetWaterIntake() {
     document.getElementById("total-intake").innerHTML = totalWaterIntake;
     waterAmount = 0;
     localStorage.setItem("waterAmount", waterAmount);
-    changeWaterLevel(waterAmount);
+    localStorage.removeItem("waterIntakeHistory");  
 }

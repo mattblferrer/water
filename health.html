@@ -48,7 +48,6 @@
                         const today = new Date();
                         const options = { month: 'long', day: 'numeric' };
                         const formattedDate = today.toLocaleDateString('en-US', options).toLowerCase();
-                        console.log("Formatted Date:", formattedDate);  // Check if the date is being formatted correctly
                         dateElement.textContent = formattedDate;
                         }
 
@@ -56,6 +55,9 @@
                         document.addEventListener("DOMContentLoaded", updateDate);
                     </script>
                     <hr class="line-break">
+                    <div id="water-intake-history">
+
+                    </div>
                 </div>
                 <div id="weekly" class ="content-section" style="display:none;">
                     <p>weekly</p>
@@ -99,6 +101,6 @@
             </ul>
         </div>
     </div>
-    <script src="backend.js"></script>
+    <script src="health.js"></script>
 </body>
 </html>
