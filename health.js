@@ -34,16 +34,20 @@ window.onload = function() {  // for health page
 
 function displayWaterIntakeHistory() {
     let historyContainer = document.getElementById("water-intake-history");
-    historyContainer.innerHTML = ""; // Clear previous history
+    historyContainer.innerHTML = ""; // clear previous history
 
     for (let time in waterIntakeHistory) {
-        let amount = waterIntakeHistory[time];
         let date = new Date(parseInt(time));
+        if (date != new Date()) continue;  // skip if not today
+
+        // format the date to show only time
+        let amount = waterIntakeHistory[time];
         let hours = date.getHours();
         let minutes = date.getMinutes();   
         let seconds = date.getSeconds();
         let formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
+        // create history item with delete button and entry info
         let historyItem = document.createElement("div");
         let historyItemAmount = document.createElement("div");
         let lineBreak1 = document.createElement("hr");
@@ -59,10 +63,12 @@ function displayWaterIntakeHistory() {
             displayWaterIntakeHistory();
         }
 
+        // set class names for styling
         historyItem.className = "history-item";
         historyItemAmount.className = "history-item-amount";
         historyItemTime.className = "history-item-time";
 
+        // set inner HTML for history item
         historyItemAmount.innerHTML = `${amount} ML`;
         historyItemTime.innerHTML = formattedTime;
         historyItem.appendChild(historyItemAmount);
@@ -70,7 +76,6 @@ function displayWaterIntakeHistory() {
         historyItem.appendChild(historyItemTime);
         historyItem.appendChild(lineBreak2);
         historyItem.appendChild(deleteButton);
-        
         historyContainer.prepend(historyItem);
     }
 }
@@ -81,7 +86,8 @@ function showContent(sectionId, element) {
     sections.forEach(section => {
         if (section.id === sectionId) {
             section.style.display = 'block';
-        } else {
+        } 
+        else {
             section.style.display = 'none';
         }
     });
