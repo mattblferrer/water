@@ -3,7 +3,8 @@ let selectedBottle = 0;
 let waterAmount = 0;
 let targetAmount = 3000;
 let totalWaterIntake = 0;
-var currentTime, reminderTime, lastTime, timer = 0;
+let reminderOn = false;
+var currentTime = 0, reminderTime = 0, lastTime = 0, timer = 0;
 
 window.onload = function() {  // for home page
     // get current water amount from local storage
@@ -26,7 +27,7 @@ window.onload = function() {  // for home page
 
 // timer function runs every 100 milliseconds
 setInterval(function() {
-     // get time since last reminder from local storage
+    // get time since last reminder from local storage
     lastTime = localStorage.getItem("lastTime");
     reminderTime = localStorage.getItem("reminderTime");
     if (lastTime == null || isNaN(lastTime)) {
@@ -35,12 +36,13 @@ setInterval(function() {
     if (reminderTime == null || isNaN(reminderTime)) {
         reminderTime = 0;
     }
-    if (timer != 0 || timer != null) {
-        currentTime = new Date().getTime();
-        timer = Math.floor((reminderTime - (currentTime - lastTime)) / 1000);
-        if (reminderTime > 0 && timer <= 0) {
-            document.getElementById("timer-text").style.color = "red";
-        }
+    currentTime = new Date().getTime();
+    if (!reminderOn) return; // if reminder is off, skip the rest of the code
+    timer = Math.floor((reminderTime - (currentTime - lastTime)) / 1000);
+    if (reminderTime > 0 && timer <= 0) {
+        document.getElementById("timer-text").style.color = "red";
+        document.getElementById("drink-text").innerHTML = "drink now";
+        reminderOn = false;
     }
     if (timer < 0) {
         timer = 0;
@@ -58,8 +60,10 @@ function setReminder() {
         reminderTime = 0;
     }
     document.getElementById("timer-text").style.color = "black";
+    document.getElementById("drink-text").innerHTML = "drink soon";
     localStorage.setItem("lastTime", currentTime);
     localStorage.setItem("reminderTime", reminderTime);
+    reminderOn = true;
 }
 
 function changeWaterLevel(newAmount) {
@@ -73,7 +77,13 @@ function toggleReminder() {
 
     if (img.src.includes("button_on.svg")) {
         img.src = "images/button_off.svg";
-    } else {
+        reminderOn = false;
+    } 
+    else {
         img.src = "images/button_on.svg";
+        lastTime = new Date().getTime();
+        localStorage.setItem("lastTime", lastTime);
+        setReminder();
     }
+
 }

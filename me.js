@@ -37,4 +37,6 @@ function resetWaterIntake() {
     waterAmount = 0;
     localStorage.setItem("waterAmount", waterAmount);
     localStorage.removeItem("waterIntakeHistory");  
+    localStorage.removeItem("lastTime");
+    localStorage.removeItem("reminderTime");
 }
