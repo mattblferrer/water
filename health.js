@@ -80,6 +80,14 @@ function displayWaterIntakeHistory() {
     }
 }
 
+function displayWeeklyGraph() {
+    
+}
+
+function displayMonthlyGraph() {
+
+}
+
 // function to handle health tab
 function showContent(sectionId, element) {
     const sections = document.querySelectorAll('.content-section');
