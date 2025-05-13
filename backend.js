@@ -64,17 +64,6 @@ function changeWaterLevel(newAmount) {
     document.getElementById("water-amount").innerHTML = waterAmount;
 }
 
-function setTargetAmount() {
-    let setAmount = parseFloat(document.getElementById("input-intake").value);
-    
-    if (isNaN(setAmount) || setAmount <= 0) {
-        alert("Please enter a valid target amount.");
-        return;
-    }
-    targetAmount = setAmount;
-    localStorage.setItem("targetAmount", setAmount);
-}
-
 // manual add water input - modal screen
 const modal = document.getElementById("inputModal");
 const openBtn = document.getElementById("openModal");
