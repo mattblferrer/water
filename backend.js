@@ -4,7 +4,38 @@
  */
 
 // console log
-console.log("Backend script loaded");
+console.log('backend.js script loaded');
+
+function fetchWeight() {
+  console.log('fetchWeight called');
+  fetch('https://water-backend-arkq.onrender.com/api/data')
+    .then(response => {
+      console.log('Response status:', response.status);
+      return response.json();
+    })
+    .then(data => {
+      console.log('Data received:', data);
+      document.getElementById('weight').textContent =
+        data.weight !== null ? `${data.weight} ml` : 'No data yet.';
+    })
+    .catch(error => {
+      console.error('Error fetching weight:', error);
+      document.getElementById('weight').textContent = 'Error fetching weight.';
+    });
+}
+
+if (document.readyState !== 'loading') {
+  console.log('Document is already ready, calling fetchWeight()');
+  fetchWeight();
+  setInterval(fetchWeight, 10000);
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded, calling fetchWeight()');
+    fetchWeight();
+    setInterval(fetchWeight, 10000);
+  });
+}
+
 
 // variable declarations
 let selectedBottle = 0;
@@ -119,24 +150,4 @@ window.addEventListener('click', (e) => {
 if (!dropdown.contains(e.target)) {
     dropdown.classList.remove('open');
 }
-});
-
-async function fetchWeight() {
-  console.log('fetchWeight called');
-  try {
-    const response = await fetch('https://water-backend-arkq.onrender.com/api/data');
-    console.log('Response status:', response.status);
-    const data = await response.json();
-    console.log('Data received:', data);
-    document.getElementById('weight').textContent = data.weight !== null ? `${data.weight} ml` : 'No data yet.';
-  } catch (error) {
-    console.error('Error fetching weight:', error);
-    document.getElementById('weight').textContent = "Error fetching weight.";
-  }
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    fetchWeight();
-    setInterval(fetchWeight, 10000);
 });
