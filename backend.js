@@ -87,7 +87,7 @@ function changeWaterLevel(newAmount) {
 // manual add water input - modal screen
 const modal = document.getElementById("inputModal");
 const openBtn = document.getElementById("openModal");
-// const closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelector(".close");
 
 openBtn.onclick = () => {
     modal.style.display = "block";
@@ -98,10 +98,10 @@ closeBtn.onclick = () => {
 };
 
 // function to handle the dropdown menu
-// const dropdown = document.querySelector('.dropdown');
-// const selected = dropdown.querySelector('.dropdown-selected');
-// const list = dropdown.querySelector('.dropdown-list');
-// const items = dropdown.querySelectorAll('.dropdown-item');
+const dropdown = document.querySelector('.dropdown');
+const selected = dropdown.querySelector('.dropdown-selected');
+const list = dropdown.querySelector('.dropdown-list');
+const items = dropdown.querySelectorAll('.dropdown-item');
 
 selected.addEventListener('click', () => {
 dropdown.classList.toggle('open');
@@ -114,25 +114,29 @@ item.addEventListener('click', () => {
 });
 });
 
-// // Close dropdown when clicking outside
-// window.addEventListener('click', (e) => {
-// if (!dropdown.contains(e.target)) {
-//     dropdown.classList.remove('open');
-// }
-// });
+// Close dropdown when clicking outside
+window.addEventListener('click', (e) => {
+if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+}
+});
 
 async function fetchWeight() {
-    try {
-        const response = await fetch('https://water-backend-arkq.onrender.com/api/data');
-        const data = await response.json();
-        document.getElementById('weight').textContent = data.weight !== null ? `${data.weight} ml` : 'No data yet.';
-    } catch (error) {
-        console.error('Error fetching weight:', error);
-        document.getElementById('weight').textContent = "Error fetching weight.";
-    }
-}  
+  console.log('fetchWeight called');
+  try {
+    const response = await fetch('https://water-backend-arkq.onrender.com/api/data');
+    console.log('Response status:', response.status);
+    const data = await response.json();
+    console.log('Data received:', data);
+    document.getElementById('weight').textContent = data.weight !== null ? `${data.weight} ml` : 'No data yet.';
+  } catch (error) {
+    console.error('Error fetching weight:', error);
+    document.getElementById('weight').textContent = "Error fetching weight.";
+  }
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchWeight();
-  setInterval(fetchWeight, 10000);
+    fetchWeight();
+    setInterval(fetchWeight, 10000);
 });
