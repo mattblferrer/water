@@ -3,6 +3,9 @@
  * FERRER, Matt
  */
 
+// console log
+console.log("Backend script loaded");
+
 // variable declarations
 let selectedBottle = 0;
 let waterAmount = 0;
