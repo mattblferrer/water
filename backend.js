@@ -117,4 +117,19 @@ if (!dropdown.contains(e.target)) {
     dropdown.classList.remove('open');
 }
 });
-             
+
+async function fetchWeight() {
+    try {
+        const response = await fetch('https://water-backend-arkq.onrender.com/api/data');
+        const data = await response.json();
+        document.getElementById("weight").textContent = data.weight !== null ? '$(data.weight) ml' : "No data yet.";
+    } catch (error) {
+        console.error('Error fetching weight:', error);
+        document.getElementById("weight").textContent = "Error fetching weight.";
+    }
+}  
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchWeight();
+  setInterval(fetchWeight, 10000);
+});
