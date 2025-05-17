@@ -6,6 +6,14 @@
 // console log
 console.log('backend.js script loaded');
 
+// variable declarations
+let selectedBottle = 0;
+let waterAmount = 0;
+let targetAmount = 3000;
+let totalWaterIntake = 0;
+let waterIntakeHistory = {};
+var currentTime, reminderTime, lastTime, timer = 0;
+
 function fetchWeight() {
     console.log('fetchWeight called');
     fetch('https://water-backend-arkq.onrender.com/api/data')
@@ -18,14 +26,24 @@ function fetchWeight() {
             if (data.weight !== null) {
                 weight = parseFloat(data.weight);
                 currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
-                changeWaterLevel(weight + currentAmount); // Call the water animation update
+                if (weight !== currentAmount) {
+                    // Calculate the water volume based on the weight difference
+                    const waterVolume = computeWaterVolume(currentAmount, weight);
+                    // Update the water amount in local storage
+                    localStorage.setItem("waterAmount", waterVolume);
+                    // Update the total water intake
+                    totalWaterIntake = parseFloat(totalWaterIntake) + waterVolume;
+                    localStorage.setItem("totalWaterIntake", totalWaterIntake);
+                    // Update the last time
+                    lastTime = Date.now();
+                    localStorage.setItem("lastTime", lastTime);
+                }
             }
         })
         .catch(error => {
             console.error('Error fetching weight:', error);
         });
 }
-
 
 if (document.readyState !== 'loading') {
     console.log('Document is already ready, calling fetchWeight()');
@@ -38,15 +56,6 @@ if (document.readyState !== 'loading') {
         setInterval(fetchWeight, 10000);
     });
 }
-
-
-// variable declarations
-let selectedBottle = 0;
-let waterAmount = 0;
-let targetAmount = 3000;
-let totalWaterIntake = 0;
-let waterIntakeHistory = {};
-var currentTime, reminderTime, lastTime, timer = 0;
 
 window.onload = function() {  // for home page
     // splash screen fade in effect
