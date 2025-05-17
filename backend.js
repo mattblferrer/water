@@ -16,7 +16,7 @@ function fetchWeight() {
         .then(data => {
             console.log('Data received:', data);
             if (data.weight !== null) {
-                const weight = parseFloat(data.weight);
+                weight = parseFloat(data.weight);
                 currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
                 changeWaterLevel(weight + currentAmount); // Call the water animation update
             }
@@ -30,7 +30,7 @@ function fetchWeight() {
 if (document.readyState !== 'loading') {
     console.log('Document is already ready, calling fetchWeight()');
     fetchWeight();
-setInterval(fetchWeight, 10000);
+    setInterval(fetchWeight, 10000);
 } else {
     document.addEventListener('DOMContentLoaded', () => {
         console.log('DOM fully loaded, calling fetchWeight()');
