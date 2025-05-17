@@ -25,7 +25,7 @@ function fetchWeight() {
         .then(data => {
             console.log('Data received:', data);
             if (data.weight !== null) {
-                newWeight = parseFloat(parseFloat(data.weight).toFixed(2));
+                newWeight = parseFloat(data.weight);
 
                 if (Math.abs(newWeight - prevWeight) > 0.01) {
 
@@ -135,7 +135,7 @@ function changeWaterLevel(newAmount) {
     waterAmount = newAmount;
     document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
     document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
-    document.getElementById("water-amount").innerHTML = waterAmount;
+    document.getElementById("water-amount").innerHTML = waterAmount.toFixed(2);
 }
 
 // manual add water input - modal screen
