@@ -25,7 +25,7 @@ function fetchWeight() {
         .then(data => {
             console.log('Data received:', data);
             if (data.weight !== null) {
-                newWeight = parseFloat(data.weight);
+                newWeight = parseFloat(parseFloat(data.weight).toFixed(2));
 
                 if (Math.abs(newWeight - prevWeight) > 0.01) {
 
