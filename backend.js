@@ -17,7 +17,8 @@ function fetchWeight() {
             console.log('Data received:', data);
             if (data.weight !== null) {
                 const weight = parseFloat(data.weight);
-                getWaterInput(weight); // Call the water animation update
+                currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
+                changeWaterLevel(weight + currentAmount); // Call the water animation update
             }
         })
         .catch(error => {
