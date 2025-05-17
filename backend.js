@@ -12,6 +12,7 @@ let waterAmount = 0;
 let targetAmount = 3000;
 let totalWaterIntake = 0;
 let waterIntakeHistory = {};
+let prevWeight = 0;
 var currentTime, reminderTime, lastTime, timer = 0;
 
 function fetchWeight() {
@@ -24,17 +25,26 @@ function fetchWeight() {
         .then(data => {
             console.log('Data received:', data);
             if (data.weight !== null) {
-                weight = parseFloat(data.weight);
-                currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
-                if (weight !== currentAmount) {
-                    // Calculate the water volume based on the weight difference
-                    const waterVolume = computeWaterVolume(currentAmount, weight);
-                    // Update the water amount in local storage
-                    localStorage.setItem("waterAmount", waterVolume);
-                    // Update the total water intake
-                    totalWaterIntake = parseFloat(totalWaterIntake) + waterVolume;
+                newWeight = parseFloat(data.weight);
+
+                if (Math.abs(newWeight - prevWeight) > 0.01) {
+
+                    prevWeight = newWeight;
+                    
+                    // Update animated water level
+                    currentAmount = parseFloat(document.getElementById("water-amount").innerHTML) || 0;
+                    changeWaterLevel(currentAmount + newWeight);
+
+                    // Save updated values
+                    localStorage.setItem("previousWeight", newWeight);
+                    localStorage.setItem("waterAmount", currentAmount + newWeight);
+
+                    // Update total intake
+                    totalWaterIntake = parseFloat(localStorage.getItem("totalWaterIntake")) || 0;
+                    totalWaterIntake += newWeight;
                     localStorage.setItem("totalWaterIntake", totalWaterIntake);
-                    // Update the last time
+
+                    // Update last time
                     lastTime = Date.now();
                     localStorage.setItem("lastTime", lastTime);
                 }
@@ -44,6 +54,7 @@ function fetchWeight() {
             console.error('Error fetching weight:', error);
         });
 }
+
 
 if (document.readyState !== 'loading') {
     console.log('Document is already ready, calling fetchWeight()');
