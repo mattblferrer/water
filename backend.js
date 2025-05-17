@@ -9,20 +9,23 @@ console.log('backend.js script loaded');
 function fetchWeight() {
     console.log('fetchWeight called');
     fetch('https://water-backend-arkq.onrender.com/api/data')
-    .then(response => {
-        console.log('Response status:', response.status);
-        return response.json();
-    })
-    .then(data => {
-        console.log('Data received:', data);
-        document.getElementById('weight').textContent =
-        data.weight !== null ? `${data.weight} ml` : 'No data yet.';
-    })
-    .catch(error => {
-        console.error('Error fetching weight:', error);
-        document.getElementById('weight').textContent = 'Error fetching weight.';
-    });
+        .then(response => {
+            console.log('Response status:', response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data received:', data);
+            if (data.weight !== null) {
+                const weight = parseFloat(data.weight);
+                changeWaterLevel(weight); // Call the water animation update
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching weight:', error);
+            document.getElementById('weight').textContent = 'Error fetching weight.';
+        });
 }
+
 
 if (document.readyState !== 'loading') {
     console.log('Document is already ready, calling fetchWeight()');
