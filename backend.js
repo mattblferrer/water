@@ -17,12 +17,11 @@ function fetchWeight() {
             console.log('Data received:', data);
             if (data.weight !== null) {
                 const weight = parseFloat(data.weight);
-                changeWaterLevel(weight); // Call the water animation update
+                getWaterInput(weight); // Call the water animation update
             }
         })
         .catch(error => {
             console.error('Error fetching weight:', error);
-            document.getElementById('weight').textContent = 'Error fetching weight.';
         });
 }
 
