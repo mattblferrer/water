@@ -15,59 +15,6 @@ let waterIntakeHistory = {};
 let prevWeight = 0;
 var currentTime, reminderTime, lastTime, timer = 0;
 
-function fetchWeight() {
-    console.log('fetchWeight called');
-    fetch('https://water-backend-arkq.onrender.com/api/data')
-        .then(response => {
-            console.log('Response status:', response.status);
-            return response.json();
-        })
-        .then(data => {
-            console.log('Data received:', data);
-            if (data.weight !== null) {
-                newWeight = parseFloat(data.weight);
-
-                if (Math.abs(newWeight - prevWeight) > 0.01) {
-
-                    prevWeight = newWeight;
-                    
-                    // Update animated water level
-                    currentAmount = parseFloat(document.getElementById("water-amount").innerHTML) || 0;
-                    changeWaterLevel(currentAmount + newWeight);
-
-                    // Save updated values
-                    localStorage.setItem("previousWeight", newWeight);
-                    localStorage.setItem("waterAmount", currentAmount + newWeight);
-
-                    // Update total intake
-                    totalWaterIntake = parseFloat(localStorage.getItem("totalWaterIntake")) || 0;
-                    totalWaterIntake += newWeight;
-                    localStorage.setItem("totalWaterIntake", totalWaterIntake);
-
-                    // Update last time
-                    lastTime = Date.now();
-                    localStorage.setItem("lastTime", lastTime);
-                }
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching weight:', error);
-        });
-}
-
-
-if (document.readyState !== 'loading') {
-    console.log('Document is already ready, calling fetchWeight()');
-    fetchWeight();
-    setInterval(fetchWeight, 10000);
-} else {
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log('DOM fully loaded, calling fetchWeight()');
-        fetchWeight();
-        setInterval(fetchWeight, 10000);
-    });
-}
-
 window.onload = function() {  // for home page
     // splash screen fade in effect
     setTimeout(function() {  
@@ -102,12 +49,66 @@ window.onload = function() {  // for home page
     document.getElementById("target-amount").innerHTML = targetAmount;
 };
 
+function fetchWeight() {
+    console.log('fetchWeight called');
+    fetch('https://water-backend-arkq.onrender.com/api/data')
+        .then(response => {
+            console.log('Response status:', response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data received:', data);
+            if (data.weight !== null) {
+                newWeight = parseFloat(data.weight);
+
+                if (Math.abs(newWeight - prevWeight) > 0.01) {
+
+                    prevWeight = newWeight;
+                    
+                    // Update animated water level
+                    waterAmount = parseFloat(document.getElementById("water-amount").innerHTML) || 0;
+                    changeWaterLevel(waterAmount + newWeight);
+
+                    // Save updated values
+                    localStorage.setItem("previousWeight", newWeight);
+                    localStorage.setItem("waterAmount", waterAmount + newWeight);
+
+                    // Update total intake
+                    totalWaterIntake = parseFloat(localStorage.getItem("totalWaterIntake")) || 0;
+                    totalWaterIntake += newWeight;
+                    localStorage.setItem("totalWaterIntake", totalWaterIntake);
+
+                    // Update last time
+                    lastTime = Date.now();
+                    localStorage.setItem("lastTime", lastTime);
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching weight:', error);
+        });
+}
+
+
+if (document.readyState !== 'loading') {
+    console.log('Document is already ready, calling fetchWeight()');
+    fetchWeight();
+    setInterval(fetchWeight, 10000);
+} 
+else {
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM fully loaded, calling fetchWeight()');
+        fetchWeight();
+        setInterval(fetchWeight, 10000);
+    });
+}
+
 // backend functions
 function getWaterInput() {
     inputAmount = parseFloat(document.getElementById("water-input-amount").value);
-    currentAmount = parseFloat(document.getElementById("water-amount").innerHTML);
-    changeWaterLevel(inputAmount + currentAmount);
-    localStorage.setItem("waterAmount", inputAmount + currentAmount);
+    waterAmount = parseFloat(document.getElementById("water-amount").innerHTML);
+    changeWaterLevel(inputAmount + waterAmount);
+    localStorage.setItem("waterAmount", waterAmount);
     totalWaterIntake = parseFloat(totalWaterIntake) + inputAmount;
     localStorage.setItem("totalWaterIntake", totalWaterIntake);
     lastTime = Date.now();
@@ -119,23 +120,11 @@ function getWaterInput() {
     localStorage.setItem("waterIntakeHistory", JSON.stringify(waterIntakeHistory));
 }
 
-function addBottle(bottleName, bottleWeight) {
-    bottles.set(bottleName, bottleWeight);
-}
-
-function removeBottle(bottleName) {
-    return bottles.delete(bottleName);
-}
-
-function computeWaterVolume(beforeWeight, afterWeight) {
-    return Math.max(0, beforeWeight - afterWeight);
-}
-
 function changeWaterLevel(newAmount) {
     waterAmount = newAmount;
     document.getElementById("water").style.height = Math.min(65, (waterAmount / targetAmount * 65)) + "vh";
     document.getElementById("wave").style.top = Math.max(0, ((0.65 - (0.65 * waterAmount / targetAmount)) * 100)) + "vh";
-    document.getElementById("water-amount").innerHTML = waterAmount.toFixed(2);
+    document.getElementById("water-amount").innerHTML = parseFloat(waterAmount).toFixed(2);
 }
 
 // manual add water input - modal screen
