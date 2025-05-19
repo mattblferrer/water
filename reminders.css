@@ -41,7 +41,7 @@
 .reminder-container h2 {
     font-weight: lighter;
     font-family: 'League Gothic', sans-serif;
-    margin: 2vh 0;
+    margin: 2.5vh 0;
     padding-left: 2vh;
 }
 .toggle {
@@ -63,18 +63,3 @@
     text-align: left;
     padding: 0 1vh;
 }
-/* #reminder-time-ui h2 {
-    font-family: 'League Gothic', sans-serif;
-    font-weight: lighter;
-    margin: 2vh 0;
-    padding-left: 2vh;
-}
-#reminder-time-ui ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0;
-    margin-left: 2vh;
-    padding: 0;
-    margin-right: 2vh;
-} */
