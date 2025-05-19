@@ -106,7 +106,12 @@ else {
 // backend functions
 function getWaterInput() {
     inputAmount = parseFloat(document.getElementById("water-input-amount").value);
-    waterAmount = parseFloat(document.getElementById("water-amount").innerHTML);
+    waterAmount = parseFloat(localStorage.getItem("waterAmount")) || 0;
+    if (isNaN(inputAmount) || inputAmount <= 0) {
+        alert("Please enter a valid water amount.");
+        return;
+    }
+    
     changeWaterLevel(inputAmount + waterAmount);
     localStorage.setItem("waterAmount", waterAmount);
     totalWaterIntake = parseFloat(totalWaterIntake) + inputAmount;
