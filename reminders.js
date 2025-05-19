@@ -22,6 +22,18 @@ window.onload = function() {  // for home page
     if (totalWaterIntake == null || isNaN(totalWaterIntake)) {
         totalWaterIntake = 0;
     }
+    // get reminder on from local storage
+    reminderOn = localStorage.getItem("reminderOn");
+    if (reminderOn == null) {
+        reminderOn = false;
+    }
+    // set reminder on or off
+    if (reminderOn) {
+        document.getElementById("reminder-toggle").src = "images/button_on.svg";
+    } 
+    else {
+        document.getElementById("reminder-toggle").src = "images/button_off.svg";
+    }
     changeWaterLevel(waterAmount);
 };
 
@@ -78,10 +90,14 @@ function toggleReminder() {
     if (img.src.includes("button_on.svg")) {
         img.src = "images/button_off.svg";
         reminderOn = false;
+        localStorage.setItem("reminderOn", false);
+        localStorage.setItem("lastTime", new Date().getTime());
     } 
     else {
         img.src = "images/button_on.svg";
         lastTime = new Date().getTime();
+        localStorage.setItem("reminderOn", true);
+        localStorage.setItem("reminderTime", reminderTime);
         localStorage.setItem("lastTime", lastTime);
         setReminder();
     }
