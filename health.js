@@ -6,6 +6,7 @@
 // variable declarations
 let waterAmount = 0;
 let targetAmount = 3000;
+let totalWaterIntake = 0;
 let waterIntakeHistory = {};
 
 window.onload = function() {  // for health page
@@ -18,6 +19,12 @@ window.onload = function() {  // for health page
     targetAmount = localStorage.getItem("targetAmount");
     if (targetAmount == null || isNaN(targetAmount)) {
         targetAmount = 3000;
+    }
+
+    // get total water intake from local storage
+    totalWaterIntake = localStorage.getItem("totalWaterIntake");
+    if (totalWaterIntake == null || isNaN(totalWaterIntake)) {
+        totalWaterIntake = 0;
     }
 
     // get water intake history from local storage
@@ -60,8 +67,10 @@ function displayWaterIntakeHistory() {
         deleteButton.onclick = function() {
             delete waterIntakeHistory[time];
             waterAmount -= amount;
+            totalWaterIntake -= amount;
             changeWaterLevel(waterAmount);
             localStorage.setItem("waterAmount", waterAmount);
+            localStorage.setItem("totalWaterIntake", totalWaterIntake);
             localStorage.setItem("waterIntakeHistory", JSON.stringify(waterIntakeHistory));
             displayWaterIntakeHistory();
         }
