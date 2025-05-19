@@ -52,16 +52,23 @@
 #weekly-graph, #monthly-graph {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 90%;
     height: 53vh;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
 }
-.weekly-bar, .monthly-bar {
+
+.weekly-bar {
+    writing-mode: vertical-rl;
+    background-color: #39BECB;
+    width: 5%;
+    font-size: 2vh;
+}
+.monthly-bar {
     writing-mode: vertical-rl;
     background-color: #39BECB;
     width: 3%;
-    font-size: 2vh;
+    font-size: 1vh;
 }

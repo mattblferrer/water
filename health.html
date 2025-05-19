@@ -104,7 +104,7 @@
                                     weeklyData[day] += waterIntakeHistory[time];
                                 }
                             }
-                            let maxWaterIntake = Math.max(...Object.values(weeklyData));
+                            let maxWaterIntake = Math.max(1, Math.max(...Object.values(weeklyData)));
                             for (let day in weeklyData) {
                                 let bar = document.createElement("div");
                                 bar.className = "weekly-bar";
@@ -136,7 +136,7 @@
                         }
 
                         function displayMonthlyGraph() {
-                            let monthlyData = Array(31).fill(0);  // array to hold water intake for each day of the month
+                            let monthlyData = Array(32).fill(0);  // array to hold water intake for each day of the month
                             let currentDate = new Date();
                             let currentMonth = currentDate.getMonth();
                             let totalWaterIntake = 0;
@@ -151,14 +151,21 @@
                                     totalWaterIntake += waterIntakeHistory[time];
                                     totalDays++;
                                     let day = date.getDate();
-                                    monthlyData[day - 1] += waterIntakeHistory[time];
+                                    monthlyData[day] += waterIntakeHistory[time];
                                 }
                             }
-                            let maxWaterIntake = Math.max(...Object.values(monthlyData));
+                            let maxWaterIntake = Math.max(1, Math.max(...Object.values(monthlyData)));
                             for (let day in monthlyData) {
                                 let bar = document.createElement("div");
                                 bar.className = "monthly-bar";
-                                bar.style.height = (monthlyData[day] / maxWaterIntake * 100) + "%";
+                                if (monthlyData[day] === 0) {
+                                    bar.style.height = 0 + "%";
+                                }
+                                else {
+                                    bar.style.height = (monthlyData[day] / maxWaterIntake * 100) + "%";
+                                    bar.style.backgroundColor = "#39BECB";
+                                    bar.innerHTML = `${monthlyData[day]}`;
+                                }
                                 monthlyContainer.appendChild(bar);
                             }
                         }
