@@ -59,6 +59,9 @@ function displayWaterIntakeHistory() {
         deleteButton.id = time;
         deleteButton.onclick = function() {
             delete waterIntakeHistory[time];
+            waterAmount -= amount;
+            changeWaterLevel(waterAmount);
+            localStorage.setItem("waterAmount", waterAmount);
             localStorage.setItem("waterIntakeHistory", JSON.stringify(waterIntakeHistory));
             displayWaterIntakeHistory();
         }
